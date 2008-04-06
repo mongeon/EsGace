@@ -71,7 +71,7 @@ namespace EsGaceEngin
 
             foreach (Item item in m_DisquesRacine)
             {
-                if ((item is Lecteur && ((Lecteur)item).EstActif) && item.Nom != "C:\\")
+                if ((item is Lecteur && ((Lecteur)item).EstActif))// && item.Nom != "C:\\")
                 {
 
 

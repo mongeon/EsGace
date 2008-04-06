@@ -73,6 +73,8 @@ namespace EsGace.Forms
         void m_moteur_AnalyseProgression(object sender, string e)
         {
             sbPrincipaleStatut.Text = e;
+            sbPrincipaleStatut.ToolTipText = e;
+            sbPrincipaleMarquee.Visible = true;
         }
 
         void m_moteur_AnalyseCompleter(object sender, Item e)
@@ -88,6 +90,11 @@ namespace EsGace.Forms
 
             tvEsGace.Sort();
             tvEsGace.Enabled = true;
+
+            sbPrincipaleStatut.Text = "";
+            sbPrincipaleStatut.ToolTipText = "";
+            sbPrincipaleMarquee.Visible = false;
+            sbPrincipaleTempsEcoule.Image = Properties.Resources.Anayse_Arret;
 
         }
 
@@ -241,6 +248,12 @@ namespace EsGace.Forms
 
         private void tlstrpMainAnalyseComplete_Click(object sender, EventArgs e)
         {
+            LancerAnalyseComplete();
+            
+        }
+        private void LancerAnalyseComplete()
+        {
+            sbPrincipaleTempsEcoule.Image = Properties.Resources.Analyse_Go;
             m_moteur.Analyse();
         }
 

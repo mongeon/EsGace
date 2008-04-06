@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading;
 using System.Windows.Forms;
+using EsGace.Classes;
+using EsGace.Forms;
 
 namespace EsGace
 {
@@ -21,7 +23,10 @@ namespace EsGace
             {
                 if (isFirstInstance)
                 {
-                    Application.Run(new Forms.PrincipaleForm());
+                    Classes.SplashAppContext splashContext = 
+                        new SplashAppContext(new Forms.PrincipaleForm(), new Demarrage());
+                    Application.Run(splashContext);
+                    //Application.Run(new Forms.PrincipaleForm());
                 }
                 else
                 {

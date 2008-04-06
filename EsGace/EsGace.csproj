@@ -52,11 +52,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\SplashAppContext.cs" />
     <Compile Include="Forms\APropos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\APropos.Designer.cs">
       <DependentUpon>APropos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Demarrage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Demarrage.Designer.cs">
+      <DependentUpon>Demarrage.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Options.cs">
       <SubType>Form</SubType>
@@ -75,6 +82,10 @@
     <EmbeddedResource Include="Forms\APropos.resx">
       <SubType>Designer</SubType>
       <DependentUpon>APropos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Demarrage.resx">
+      <DependentUpon>Demarrage.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Options.resx">
       <SubType>Designer</SubType>

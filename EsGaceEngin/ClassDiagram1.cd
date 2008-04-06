@@ -1,44 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="EsGaceEngin.Noeud">
-    <Position X="3.75" Y="0.5" Width="1.5" />
+  <Class Name="EsGaceEngin.Noeud" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Noeud.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="EsGaceEngin.Item">
-    <Position X="3.75" Y="2.25" Width="1.5" />
+  <Class Name="EsGaceEngin.Item" Collapsed="true">
+    <Position X="2.75" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAgAACAAAAAAAAAICAAAAEAAAAAAAAAAAA=</HashCode>
+      <HashCode>QAAIAAAAAAAgAACAAAAQBAAAICAAAAEAAEAAAAAAAAA=</HashCode>
       <FileName>Item.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="EsGaceEngin.Lecteur">
-    <Position X="6" Y="5" Width="1.5" />
+  <Class Name="EsGaceEngin.Lecteur" Collapsed="true">
+    <Position X="3.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAAAAAAAAAggAICgAAAEACQAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAgAACAAAAAAggAIAgAAAEACQAAAAAAAAA=</HashCode>
       <FileName>Lecteur.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="EsGaceEngin.Repertoire">
-    <Position X="3.75" Y="5" Width="1.5" />
+  <Class Name="EsGaceEngin.Repertoire" Collapsed="true">
+    <Position X="1.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAQAEAIAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAACBAAAAABAAIAAAAAAAAAAAQAEAIAA=</HashCode>
       <FileName>Repertoire.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="EsGaceEngin.Fichier">
-    <Position X="1.5" Y="5" Width="1.5" />
+  <Class Name="EsGaceEngin.Fichier" Collapsed="true">
+    <Position X="1.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAgAACAAAAYAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Fichier.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
+  <Class Name="EsGaceEngin.Engin" Collapsed="true">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="EsGaceEngin.Engin.EnginProgressionEventHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Engin.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="EsGaceEngin.Engin.EnginEventHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Engin.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>QAAgAAQgAAIQAAAAAABAAAAACAAAAAAAAAAAAAMBAAA=</HashCode>
+      <FileName>Engin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="EsGaceEngin.iItem" Collapsed="true">
-    <Position X="8.5" Y="0.5" Width="1.5" />
+    <Position X="6.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAQAEAIAA=</HashCode>
       <FileName>iItem.cs</FileName>

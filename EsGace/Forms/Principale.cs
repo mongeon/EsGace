@@ -48,8 +48,8 @@ namespace EsGace.Forms
             tvEsGace.TreeViewNodeSorter = new NodeSorter();
             ChargementImage();
             m_moteur = new Engin();
-            m_moteur.AnalysePartielCompleter += new Engin.EnginEventHandler(m_moteur_AnalysePartielCompleter);
             m_moteur.AnalyseCompleter += new Engin.EnginEventHandler(m_moteur_AnalyseCompleter);
+            m_moteur.AnalyseProgression += new Engin.EnginProgressionEventHandler(m_moteur_AnalyseProgression);
             try
             {
                 foreach (EsGaceEngin.Item disque in m_moteur.DisqueRacines)
@@ -63,6 +63,16 @@ namespace EsGace.Forms
                 
                 throw;
             }
+        }
+
+        /// <summary>
+        /// Met à jour le statut de l'analyse
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void m_moteur_AnalyseProgression(object sender, string e)
+        {
+            sbPrincipaleStatut.Text = e;
         }
 
         void m_moteur_AnalyseCompleter(object sender, Item e)
@@ -231,7 +241,7 @@ namespace EsGace.Forms
 
         private void tlstrpMainAnalyseComplete_Click(object sender, EventArgs e)
         {
-            m_moteur.Analyse(Properties.Settings.Default.NbBGWAnalyse);
+            m_moteur.Analyse();
         }
 
         private void tvEsGace_AfterSelect(object sender, TreeViewEventArgs e)
@@ -253,7 +263,20 @@ namespace EsGace.Forms
 
         private void tlstrpMainAnnulerAnalyse_Click(object sender, EventArgs e)
         {
+
             m_moteur.AnnulerAnalyse();
+        }
+
+        private void bgwAnalyse_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+
+                m_moteur.Analyse();
+            
+        }
+
+        private void bgwAnalyse_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            sbPrincipaleStatut.Text = "Complété";
         }
 
     }

@@ -32,6 +32,7 @@
             this.tspHaut = new System.Windows.Forms.ToolStripPanel();
             this.tlstrpMain = new System.Windows.Forms.ToolStrip();
             this.tlstrpMainAnalyseComplete = new System.Windows.Forms.ToolStripButton();
+            this.tlstrpMainAnnulerAnalyse = new System.Windows.Forms.ToolStripButton();
             this.mnuPrincipal = new System.Windows.Forms.MenuStrip();
             this.mnuPrincipalFichier = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPrincipalFichierQuitter = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,7 +46,6 @@
             this.splMainHorizontal = new System.Windows.Forms.SplitContainer();
             this.tvEsGace = new System.Windows.Forms.TreeView();
             this.txtDetails = new System.Windows.Forms.TextBox();
-            this.tlstrpMainAnnulerAnalyse = new System.Windows.Forms.ToolStripButton();
             this.tspHaut.SuspendLayout();
             this.tlstrpMain.SuspendLayout();
             this.mnuPrincipal.SuspendLayout();
@@ -86,6 +86,16 @@
             this.tlstrpMainAnalyseComplete.Size = new System.Drawing.Size(23, 22);
             this.tlstrpMainAnalyseComplete.Text = "&Analyse";
             this.tlstrpMainAnalyseComplete.Click += new System.EventHandler(this.tlstrpMainAnalyseComplete_Click);
+            // 
+            // tlstrpMainAnnulerAnalyse
+            // 
+            this.tlstrpMainAnnulerAnalyse.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tlstrpMainAnnulerAnalyse.Image = ((System.Drawing.Image)(resources.GetObject("tlstrpMainAnnulerAnalyse.Image")));
+            this.tlstrpMainAnnulerAnalyse.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tlstrpMainAnnulerAnalyse.Name = "tlstrpMainAnnulerAnalyse";
+            this.tlstrpMainAnnulerAnalyse.Size = new System.Drawing.Size(23, 22);
+            this.tlstrpMainAnnulerAnalyse.Text = "Annuler Analyse";
+            this.tlstrpMainAnnulerAnalyse.Click += new System.EventHandler(this.tlstrpMainAnnulerAnalyse_Click);
             // 
             // mnuPrincipal
             // 
@@ -164,6 +174,7 @@
             this.sbPrincipaleStatut.Name = "sbPrincipaleStatut";
             this.sbPrincipaleStatut.Size = new System.Drawing.Size(293, 17);
             this.sbPrincipaleStatut.Spring = true;
+            this.sbPrincipaleStatut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tspGauche
             // 
@@ -214,16 +225,6 @@
             this.txtDetails.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDetails.Size = new System.Drawing.Size(308, 71);
             this.txtDetails.TabIndex = 0;
-            // 
-            // tlstrpMainAnnulerAnalyse
-            // 
-            this.tlstrpMainAnnulerAnalyse.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tlstrpMainAnnulerAnalyse.Image = ((System.Drawing.Image)(resources.GetObject("tlstrpMainAnnulerAnalyse.Image")));
-            this.tlstrpMainAnnulerAnalyse.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tlstrpMainAnnulerAnalyse.Name = "tlstrpMainAnnulerAnalyse";
-            this.tlstrpMainAnnulerAnalyse.Size = new System.Drawing.Size(23, 22);
-            this.tlstrpMainAnnulerAnalyse.Text = "Annuler Analyse";
-            this.tlstrpMainAnnulerAnalyse.Click += new System.EventHandler(this.tlstrpMainAnnulerAnalyse_Click);
             // 
             // PrincipaleForm
             // 

@@ -19,15 +19,10 @@ namespace EsGace.Forms
         private void btnOk_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.Decimal = nudDecimales.Value;
-
+            
             Properties.Settings.Default.Save();
 
             this.Close();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void btnAnnuler_Click(object sender, EventArgs e)

@@ -67,6 +67,13 @@ namespace EsGace.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Analyse_Arret {
+            get {
+                object obj = ResourceManager.GetObject("Analyse_Arret", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Analyse_Erreur {
             get {
                 object obj = ResourceManager.GetObject("Analyse_Erreur", resourceCulture);
@@ -77,13 +84,6 @@ namespace EsGace.Properties {
         internal static System.Drawing.Bitmap Analyse_Go {
             get {
                 object obj = ResourceManager.GetObject("Analyse_Go", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Anayse_Arret {
-            get {
-                object obj = ResourceManager.GetObject("Anayse_Arret", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -24,7 +24,7 @@ namespace EsGace.Classes
             this.mainForm = mainForm;
             splashTimer.Tick += new EventHandler(SplashTimeUp);
             
-            splashTimer.Interval = 2000;
+            splashTimer.Interval = 500;
             splashTimer.Enabled = true;
         }
 

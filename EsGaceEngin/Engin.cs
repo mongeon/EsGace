@@ -7,14 +7,74 @@ using System.ComponentModel;
 
 namespace EsGaceEngin
 {
-
+    ///////////////////////////////////////////////////////////////////////////////////////////////
+    /// <summary>
+    /// Engin d'analyse des fichiers sur le disque dur.
+    /// </summary>
+    ///////////////////////////////////////////////////////////////////////////////////////////////
     public class Engin
     {
-        private BackgroundWorker m_bgwAnalyse ;
+        #region Enumérations =======================================================================
+        /// <summary>
+        /// Dicte l'état de l'engin
+        /// </summary>
+        [Flags]
+        public enum Etat
+        {
+            EnCours = 0x01,
+            Annuler = 0x02,
+            AnnulationEnAttente = 0x04,
+            Erreur = 0x08,
+            EnAttente = 0x16,
+        } 
+        #endregion
+
+        #region Delegates =========================================================================
+        // Declare the delegate (if using non-generic pattern).
+        public delegate void EnginEventHandler(object sender, Item e);
+        public delegate void EnginEtatModifierEventHandler(object sender, Etat etat);
+        public delegate void EnginProgressionEventHandler(object sender, string e);
+        #endregion
+        #region Évènements ========================================================================
+        // Declare the event.
+        public event EnginEventHandler AnalyseCompleter;
+        public event EnginProgressionEventHandler AnalyseProgression;
+        public event EnginEtatModifierEventHandler EtatModifier;
+
+        #endregion
+
+        #region Variables =========================================================================
+
+        /// <summary>
+        /// Analyseur en arrière plan
+        /// </summary>
+        private BackgroundWorker m_bgwAnalyse;
         /// <summary>
         /// Liste des lecteurs racines
         /// </summary>
         private List<Lecteur> m_DisquesRacine;
+
+        /// <summary>
+        /// Etat actuel de l'engin
+        /// </summary>
+        private Etat m_Etat = Etat.EnAttente;
+        #endregion
+
+        /// <summary>
+        /// Etat actuel de l'engin
+        ///    EnCours = 0x01,
+        ///    Annuler = 0x02,
+        ///    AnnulationEnAttente = 0x04,
+        ///    Erreur = 0x08,
+        ///    EnAttente = 0x16,
+        /// </summary>
+        public Etat EtatEngin
+        {
+            get
+            {
+                return m_Etat;
+            }
+        }
 
         /// <summary>
         /// Retourne la liste des lecteurs racines
@@ -31,6 +91,7 @@ namespace EsGaceEngin
         {
             m_bgwAnalyse = new BackgroundWorker();
             m_bgwAnalyse.WorkerReportsProgress = true;
+            m_bgwAnalyse.WorkerSupportsCancellation = true;
             m_bgwAnalyse.DoWork += new DoWorkEventHandler(m_bgwAnalyse_DoWork);
             m_bgwAnalyse.ProgressChanged += new ProgressChangedEventHandler(m_bgwAnalyse_ProgressChanged);
             m_bgwAnalyse.RunWorkerCompleted += new RunWorkerCompletedEventHandler(m_bgwAnalyse_RunWorkerCompleted);
@@ -45,6 +106,19 @@ namespace EsGaceEngin
 
         void m_bgwAnalyse_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            if (e.Cancelled)
+            {
+                m_Etat = Etat.Annuler;
+            }
+            else
+            {
+                m_Etat = Etat.EnAttente;
+            }
+            
+            if (EtatModifier !=null)
+            {
+                EtatModifier(this, EtatEngin);
+            }
             if (AnalyseCompleter != null)
             {
                 AnalyseCompleter(this,new Item());
@@ -64,36 +138,51 @@ namespace EsGaceEngin
 
             }
         }
-
+        ///****************************************************************************************
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        ///****************************************************************************************
         void m_bgwAnalyse_DoWork(object sender, DoWorkEventArgs e)
         {
             long Taille = 0;
 
             foreach (Item item in m_DisquesRacine)
             {
-                if ((item is Lecteur && ((Lecteur)item).EstActif))// && item.Nom != "C:\\")
-                {
 
-
-                    m_bgwAnalyse.ReportProgress(-1,item);
-
-                    Taille += AnalyseRecursive(item);
-                }
+                if (m_bgwAnalyse.CancellationPending) 
+                   break;
+                    if ((item is Lecteur && ((Lecteur)item).EstActif))// && item.Nom != "C:\\")
+                    {
+                        m_bgwAnalyse.ReportProgress(-1, item);
+                        Taille += AnalyseRecursive(item);
+                    }
             }
 
 
         }
-        // Declare the delegate (if using non-generic pattern).
-        public delegate void EnginEventHandler(object sender, Item e);
-        public delegate void EnginProgressionEventHandler(object sender, string e);
 
-        // Declare the event.
-        public event EnginEventHandler AnalyseCompleter;
-        public event EnginProgressionEventHandler AnalyseProgression;
 
+        ///****************************************************************************************
+        /// <summary>
+        /// Annule l'analyse en cours.
+        /// </summary>
+        ///****************************************************************************************
         public void AnnulerAnalyse()
         {
-            //TODO: Basculer Variable d'analyse!
+
+            if (m_bgwAnalyse != null)
+            {
+                m_Etat = Etat.AnnulationEnAttente;
+                if (EtatModifier != null)
+                {
+                    EtatModifier(this, EtatEngin);
+                }
+                m_bgwAnalyse.CancelAsync();
+                
+            }            
         }
         private Item TrouverItemNonAnalyser(Item ItemDepart)
         {
@@ -132,7 +221,11 @@ namespace EsGaceEngin
 
         public long Analyse()
         {
-
+            m_Etat = Etat.EnCours;
+            if (EtatModifier != null)
+            {
+                EtatModifier(this, EtatEngin);
+            }
             m_bgwAnalyse.RunWorkerAsync();
             return 0;
         }
@@ -141,8 +234,8 @@ namespace EsGaceEngin
 
         private long AnalyseRecursive(Item item)
         {
-            //if (bgw.CancellationPending) 
-            //    return 0;
+            if (m_bgwAnalyse.CancellationPending) 
+                return 0;
 
             long taille = 0;
             // Rapporte le changement

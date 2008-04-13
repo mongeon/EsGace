@@ -28,20 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrincipaleForm));
+            this.components = new System.ComponentModel.Container();
             this.tspHaut = new System.Windows.Forms.ToolStripPanel();
             this.tlstrpMain = new System.Windows.Forms.ToolStrip();
             this.mnuPrincipal = new System.Windows.Forms.MenuStrip();
             this.mnuPrincipalFichier = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuPrincipalAnalyse = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuPrincipalAnalyseComplete = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuPrincipalAnalyseAnnuler = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPrincipalOutils = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPrincipalAP = new System.Windows.Forms.ToolStripMenuItem();
             this.sbPrincipale = new System.Windows.Forms.StatusStrip();
             this.sbPrincipaleStatut = new System.Windows.Forms.ToolStripStatusLabel();
+            this.sbPrincipaleMarquee = new System.Windows.Forms.ToolStripProgressBar();
             this.tspGauche = new System.Windows.Forms.ToolStripPanel();
             this.splMainHorizontal = new System.Windows.Forms.SplitContainer();
             this.tvEsGace = new System.Windows.Forms.TreeView();
             this.txtDetails = new System.Windows.Forms.TextBox();
-            this.sbPrincipaleMarquee = new System.Windows.Forms.ToolStripProgressBar();
+            this.minTempsEcoule = new System.Windows.Forms.Timer(this.components);
             this.sbPrincipaleTempsEcoule = new System.Windows.Forms.ToolStripStatusLabel();
             this.tlstrpMainAnalyseComplete = new System.Windows.Forms.ToolStripButton();
             this.tlstrpMainAnnulerAnalyse = new System.Windows.Forms.ToolStripButton();
@@ -83,6 +87,7 @@
             // 
             this.mnuPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuPrincipalFichier,
+            this.mnuPrincipalAnalyse,
             this.mnuPrincipalOutils,
             this.mnuPrincipalAP});
             this.mnuPrincipal.Location = new System.Drawing.Point(0, 0);
@@ -98,6 +103,35 @@
             this.mnuPrincipalFichier.Name = "mnuPrincipalFichier";
             this.mnuPrincipalFichier.Size = new System.Drawing.Size(50, 20);
             this.mnuPrincipalFichier.Text = "&Fichier";
+            // 
+            // mnuPrincipalAnalyse
+            // 
+            this.mnuPrincipalAnalyse.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuPrincipalAnalyseComplete,
+            this.mnuPrincipalAnalyseAnnuler});
+            this.mnuPrincipalAnalyse.Name = "mnuPrincipalAnalyse";
+            this.mnuPrincipalAnalyse.Size = new System.Drawing.Size(57, 20);
+            this.mnuPrincipalAnalyse.Text = "&Analyse";
+            // 
+            // mnuPrincipalAnalyseComplete
+            // 
+            this.mnuPrincipalAnalyseComplete.Enabled = false;
+            this.mnuPrincipalAnalyseComplete.Image = global::EsGace.Properties.Resources.Analyse;
+            this.mnuPrincipalAnalyseComplete.Name = "mnuPrincipalAnalyseComplete";
+            this.mnuPrincipalAnalyseComplete.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.mnuPrincipalAnalyseComplete.Size = new System.Drawing.Size(190, 22);
+            this.mnuPrincipalAnalyseComplete.Text = "Analyse &Complète";
+            this.mnuPrincipalAnalyseComplete.Click += new System.EventHandler(this.mnuPrincipalAnalyseComplete_Click);
+            // 
+            // mnuPrincipalAnalyseAnnuler
+            // 
+            this.mnuPrincipalAnalyseAnnuler.Enabled = false;
+            this.mnuPrincipalAnalyseAnnuler.Image = global::EsGace.Properties.Resources.Analyse_Arret;
+            this.mnuPrincipalAnalyseAnnuler.Name = "mnuPrincipalAnalyseAnnuler";
+            this.mnuPrincipalAnalyseAnnuler.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F5)));
+            this.mnuPrincipalAnalyseAnnuler.Size = new System.Drawing.Size(190, 22);
+            this.mnuPrincipalAnalyseAnnuler.Text = "&Annuler";
+            this.mnuPrincipalAnalyseAnnuler.Click += new System.EventHandler(this.mnuPrincipalAnalyseAnnuler_Click);
             // 
             // mnuPrincipalOutils
             // 
@@ -131,9 +165,16 @@
             // sbPrincipaleStatut
             // 
             this.sbPrincipaleStatut.Name = "sbPrincipaleStatut";
-            this.sbPrincipaleStatut.Size = new System.Drawing.Size(140, 20);
+            this.sbPrincipaleStatut.Size = new System.Drawing.Size(273, 20);
             this.sbPrincipaleStatut.Spring = true;
             this.sbPrincipaleStatut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // sbPrincipaleMarquee
+            // 
+            this.sbPrincipaleMarquee.Name = "sbPrincipaleMarquee";
+            this.sbPrincipaleMarquee.Size = new System.Drawing.Size(100, 19);
+            this.sbPrincipaleMarquee.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.sbPrincipaleMarquee.Visible = false;
             // 
             // tspGauche
             // 
@@ -185,24 +226,23 @@
             this.txtDetails.Size = new System.Drawing.Size(308, 71);
             this.txtDetails.TabIndex = 0;
             // 
-            // sbPrincipaleMarquee
+            // minTempsEcoule
             // 
-            this.sbPrincipaleMarquee.Name = "sbPrincipaleMarquee";
-            this.sbPrincipaleMarquee.Size = new System.Drawing.Size(100, 19);
-            this.sbPrincipaleMarquee.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.sbPrincipaleMarquee.Visible = false;
+            this.minTempsEcoule.Interval = 1000;
+            this.minTempsEcoule.Tick += new System.EventHandler(this.minTempsEcoule_Tick);
             // 
             // sbPrincipaleTempsEcoule
             // 
             this.sbPrincipaleTempsEcoule.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
-            this.sbPrincipaleTempsEcoule.Image = global::EsGace.Properties.Resources.Anayse_Arret;
+            this.sbPrincipaleTempsEcoule.Image = global::EsGace.Properties.Resources.Analyse_Arret;
             this.sbPrincipaleTempsEcoule.Name = "sbPrincipaleTempsEcoule";
             this.sbPrincipaleTempsEcoule.Size = new System.Drawing.Size(20, 20);
             // 
             // tlstrpMainAnalyseComplete
             // 
             this.tlstrpMainAnalyseComplete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tlstrpMainAnalyseComplete.Image = ((System.Drawing.Image)(resources.GetObject("tlstrpMainAnalyseComplete.Image")));
+            this.tlstrpMainAnalyseComplete.Enabled = false;
+            this.tlstrpMainAnalyseComplete.Image = global::EsGace.Properties.Resources.Analyse;
             this.tlstrpMainAnalyseComplete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tlstrpMainAnalyseComplete.Name = "tlstrpMainAnalyseComplete";
             this.tlstrpMainAnalyseComplete.Size = new System.Drawing.Size(23, 22);
@@ -212,7 +252,8 @@
             // tlstrpMainAnnulerAnalyse
             // 
             this.tlstrpMainAnnulerAnalyse.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tlstrpMainAnnulerAnalyse.Image = ((System.Drawing.Image)(resources.GetObject("tlstrpMainAnnulerAnalyse.Image")));
+            this.tlstrpMainAnnulerAnalyse.Enabled = false;
+            this.tlstrpMainAnnulerAnalyse.Image = global::EsGace.Properties.Resources.Analyse_Arret;
             this.tlstrpMainAnnulerAnalyse.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tlstrpMainAnnulerAnalyse.Name = "tlstrpMainAnnulerAnalyse";
             this.tlstrpMainAnnulerAnalyse.Size = new System.Drawing.Size(23, 22);
@@ -232,7 +273,7 @@
             // 
             this.mnuPrincipalOutilsOptions.Image = global::EsGace.Properties.Resources.wrench;
             this.mnuPrincipalOutilsOptions.Name = "mnuPrincipalOutilsOptions";
-            this.mnuPrincipalOutilsOptions.Size = new System.Drawing.Size(134, 22);
+            this.mnuPrincipalOutilsOptions.Size = new System.Drawing.Size(152, 22);
             this.mnuPrincipalOutilsOptions.Text = "&Options...";
             this.mnuPrincipalOutilsOptions.Click += new System.EventHandler(this.mnuPrincipalOutilsOptions_Click);
             // 
@@ -240,7 +281,7 @@
             // 
             this.mnuPrincipalAPAP.Image = global::EsGace.Properties.Resources.information;
             this.mnuPrincipalAPAP.Name = "mnuPrincipalAPAP";
-            this.mnuPrincipalAPAP.Size = new System.Drawing.Size(140, 22);
+            this.mnuPrincipalAPAP.Size = new System.Drawing.Size(152, 22);
             this.mnuPrincipalAPAP.Text = "À propos...";
             this.mnuPrincipalAPAP.Click += new System.EventHandler(this.mnuPrincipalAPAP_Click);
             // 
@@ -297,5 +338,9 @@
         private System.Windows.Forms.ToolStripButton tlstrpMainAnnulerAnalyse;
         private System.Windows.Forms.ToolStripStatusLabel sbPrincipaleTempsEcoule;
         private System.Windows.Forms.ToolStripProgressBar sbPrincipaleMarquee;
+        private System.Windows.Forms.Timer minTempsEcoule;
+        private System.Windows.Forms.ToolStripMenuItem mnuPrincipalAnalyse;
+        private System.Windows.Forms.ToolStripMenuItem mnuPrincipalAnalyseComplete;
+        private System.Windows.Forms.ToolStripMenuItem mnuPrincipalAnalyseAnnuler;
     }
 }

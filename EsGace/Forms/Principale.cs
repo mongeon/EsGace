@@ -6,8 +6,11 @@ using System.Drawing;
 using System.Windows.Forms;
 using EsGaceEngin;
 
+//Private Declare Function SetForegroundWindow Lib "user32.dll" (ByVal hWnd As IntPtr) As Boolean
+ 
 namespace EsGace.Forms
 {
+   
     ///////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>
     /// Classe principale
@@ -78,6 +81,8 @@ namespace EsGace.Forms
             Options opt = new Options();
 
             opt.ShowDialog();
+
+            niEsGace.Visible = Properties.Settings.Default.AfficherIconeNotification;
         }
         ///****************************************************************************************
         /// <summary>
@@ -103,16 +108,7 @@ namespace EsGace.Forms
         }
         #endregion
 
-        ///****************************************************************************************
-        /// <summary>
-        /// Termine proprement l'application
-        /// </summary>
-        ///****************************************************************************************
-        private void FermerApplication() {
-            m_moteur.AnnulerAnalyse();
-            Application.Exit(); 
-        }
-
+        #region Fenêtres ==========================================================================
         ///****************************************************************************************
         /// <summary>
         /// Chargement de la fenêtre
@@ -122,6 +118,7 @@ namespace EsGace.Forms
         ///****************************************************************************************
         private void PrincipaleForm_Load(object sender, EventArgs e)
         {
+            
 
             tvEsGace.TreeViewNodeSorter = new NodeSorter();
             ChargementImage();
@@ -139,13 +136,116 @@ namespace EsGace.Forms
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
 
             // Affiche les bons contrôles disponibles
             AjusterFenetreSelonEtat();
         }
+        ///****************************************************************************************
+        /// <summary>
+        /// Ajuste les options de la fenêtre selon l'état du moteur
+        /// </summary>
+        ///****************************************************************************************
+        private void AjusterFenetreSelonEtat()
+        {
+            switch (m_moteur.EtatEngin)
+            {
+                case Engin.Etat.EnCours:
+                    mnuPrincipalAnalyseAnnuler.Enabled = true;
+                    mnuPrincipalAnalyseComplete.Enabled = false;
+                    sbPrincipaleTempsEcoule.Image = Properties.Resources.Analyse_Go;
+                    sbPrincipaleMarquee.Visible = true;
+                    break;
+                case Engin.Etat.Annuler:
+                    mnuPrincipalAnalyseAnnuler.Enabled = false;
+                    mnuPrincipalAnalyseComplete.Enabled = true;
+                    sbPrincipaleTempsEcoule.Image = Properties.Resources.Analyse_Arret;
+                    sbPrincipaleMarquee.Visible = false;
+                    break;
+                case Engin.Etat.AnnulationEnAttente:
+                    mnuPrincipalAnalyseAnnuler.Enabled = false;
+                    mnuPrincipalAnalyseComplete.Enabled = false;
+
+                    break;
+                case Engin.Etat.Erreur:
+                    mnuPrincipalAnalyseAnnuler.Enabled = false;
+                    mnuPrincipalAnalyseComplete.Enabled = true;
+                    sbPrincipaleTempsEcoule.Image = Properties.Resources.Analyse_Erreur;
+                    sbPrincipaleMarquee.Visible = false;
+                    break;
+                case Engin.Etat.EnAttente:
+                    mnuPrincipalAnalyseAnnuler.Enabled = false;
+                    mnuPrincipalAnalyseComplete.Enabled = true;
+                    sbPrincipaleTempsEcoule.Image = Properties.Resources.Analyse_Arret;
+                    sbPrincipaleMarquee.Visible = false;
+                    break;
+                default:
+                    break;
+            }
+            // Copie l'état dans la toolbar.
+            tlstrpMainAnalyseComplete.Enabled = mnuPrincipalAnalyseComplete.Enabled;
+            tlstrpMainAnnulerAnalyse.Enabled = mnuPrincipalAnalyseAnnuler.Enabled;
+            cmnuNotifyAnnulerAnalyse.Enabled = mnuPrincipalAnalyseAnnuler.Enabled;
+            //niEsGace.Icon = sbPrincipaleTempsEcoule.Image.;
+        }
+
+        ///****************************************************************************************
+        /// <summary>
+        /// Détermine si on doit fermer ou seulement cacher la fenêtre.
+        /// </summary>
+        ///****************************************************************************************
+        private void PrincipaleForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            switch (e.CloseReason)
+            {
+                // Si c'est l'utilisateur qui ferme par le X, alors ne fait que minimiser
+                case CloseReason.None:
+                case CloseReason.UserClosing:
+                    if ((Properties.Settings.Default.AfficherIconeNotification == true 
+                        && Properties.Settings.Default.MinimizerLorsReduction == true))
+                     {                        
+                        e.Cancel = true;
+                        this.WindowState = FormWindowState.Minimized;
+                     }
+                    else
+                    {
+                        FermerApplication();
+                    }
+                    break;
+                default:
+                    // Pour toutes les autres raisons, on quitte l'application.
+                    FermerApplication();
+                    break;
+            }
+        }
+        ///****************************************************************************************
+        /// <summary>
+        /// Lors de la redimensionnement de la fenêtre
+        /// </summary>
+        ///****************************************************************************************
+        private void PrincipaleForm_Resize(object sender, EventArgs e)
+        {
+            // Si l'état devient minimiser, alors on l'enlève de la barre de tâches et on la cache
+            if (this.WindowState == FormWindowState.Minimized
+                && (Properties.Settings.Default.AfficherIconeNotification == true && Properties.Settings.Default.MinimizerLorsReduction == true))
+            {
+                this.ShowInTaskbar = false;
+                this.Hide();
+            }
+            // Sinon, on l'affiche dans la barre des taches et on la réafficher
+            else
+            {
+                this.ShowInTaskbar = true;
+                this.Show();
+            }
+        }
+
+        #endregion
+
+        #region Moteur / Engin ====================================================================
+
         ///****************************************************************************************
         /// <summary>
         /// Lorsque le moteur change d'état, on modifie l'interface pour l'interaction avec 
@@ -178,9 +278,9 @@ namespace EsGace.Forms
                 sbPrincipaleStatut.Text = "";
                 sbPrincipaleStatut.ToolTipText = "";
             }
-            
+
             sbPrincipaleMarquee.Visible = true;
-             
+
         }
 
         ///****************************************************************************************
@@ -198,7 +298,7 @@ namespace EsGace.Forms
                 {
                     AjouterItemArbre(tn, item);
                 }
-            
+
             }
 
             tvEsGace.Sort();
@@ -208,10 +308,10 @@ namespace EsGace.Forms
             sbPrincipaleStatut.ToolTipText = "";
             minTempsEcoule.Enabled = false;
 
-
         }
+        #endregion
 
-
+        #region Arbre =============================================================================
         ///****************************************************************************************
         /// <summary>
         /// Charge les images dans la liste pour permettre d'afficher ceux-ci dans l'arbre
@@ -224,11 +324,11 @@ namespace EsGace.Forms
             imgArbre.TransparentColor = Color.White;
             imgArbre.Images.Add("Erreur", Properties.Resources.Erreur);
             imgArbre.Images.Add("Lecteur", Properties.Resources.Lecteur);
-            imgArbre.Images.Add("Lecteur_Erreur", Properties.Resources.Lecteur_Erreur );
+            imgArbre.Images.Add("Lecteur_Erreur", Properties.Resources.Lecteur_Erreur);
             imgArbre.Images.Add("Repertoire", Properties.Resources.Repertoire);
             imgArbre.Images.Add("Fichier", Properties.Resources.Fichier);
 
-            
+
             imgArbre.ImageSize = Properties.Resources.Erreur.Size;
             tvEsGace.ImageList = imgArbre;
 
@@ -249,14 +349,14 @@ namespace EsGace.Forms
             TreeNode tn = new TreeNode(item.Nom);
 
             tn.Tag = item;
-            if (item.Taille >= 0) 
-            { 
+            if (item.Taille >= 0)
+            {
                 tn.Text = item.Nom + "  ["
-                +TransformerTailleEnTexte( item.Taille)
-                +"]"; 
+                + TransformerTailleEnTexte(item.Taille)
+                + "]";
             }
-            if (item is Fichier == false){tn.Nodes.Add("Dummy");}
-            
+            if (item is Fichier == false) { tn.Nodes.Add("Dummy"); }
+
             AjouterImageNoeudArbre(tn);
             AjusterCouleurNoeudArbre(tn);
 
@@ -270,9 +370,9 @@ namespace EsGace.Forms
             }
 
             return true;
-                
+
         }
-        
+
         private bool AjouterImageNoeudArbre(TreeNode NoeudArbre)
         {
             if (NoeudArbre.Tag is Lecteur)
@@ -287,7 +387,7 @@ namespace EsGace.Forms
             {
                 NoeudArbre.ImageKey = "Repertoire";
             }
-            
+
             return false;
         }
         private bool AjusterCouleurNoeudArbre(TreeNode NoeudArbre)
@@ -309,7 +409,7 @@ namespace EsGace.Forms
             }
         }
 
-        private void treeView1_BeforeExpand(object sender, TreeViewCancelEventArgs e)
+        private void tvEsGace_BeforeExpand(object sender, TreeViewCancelEventArgs e)
         {
             e.Node.Nodes.Clear();
 
@@ -333,6 +433,35 @@ namespace EsGace.Forms
 
 
         }
+        private void tvEsGace_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if (e.Node.Tag is Item)
+            {
+                Item item = (Item)e.Node.Tag;
+                txtDetails.Text = item.Nom;
+                txtDetails.Text += "\r\n" + item.Chemin;
+                if (item.Taille >= 0)
+                    txtDetails.Text += "\r\nTaille : " + TransformerTailleEnTexte(item.Taille);
+            }
+            else
+            {
+                txtDetails.Text = "";
+            }
+
+        }
+
+        #endregion
+
+        ///****************************************************************************************
+        /// <summary>
+        /// Termine proprement l'application
+        /// </summary>
+        ///****************************************************************************************
+        private void FermerApplication() {
+            m_moteur.AnnulerAnalyse();
+            Application.Exit(); 
+        }
+
         private string TransformerTailleEnTexte(long taille)
         {
             Double TailleD = Convert.ToDouble(taille);
@@ -356,15 +485,6 @@ namespace EsGace.Forms
             }
 
         }
-
-
-
-        private void tlstrpMainAnalyseComplete_Click(object sender, EventArgs e)
-        {
-            LancerAnalyseComplete();
-            
-        }
-
         ///****************************************************************************************
         /// <summary>
         /// Lance l'analyse complète
@@ -387,91 +507,30 @@ namespace EsGace.Forms
             m_moteur.AnnulerAnalyse();
         }
 
-        private void tvEsGace_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            if (e.Node.Tag is Item)
-	        {
-		         Item item = (Item)e.Node.Tag;
-                 txtDetails.Text = item.Nom;
-                 txtDetails.Text += "\r\n"+item.Chemin;
-                 if (item.Taille >=0 )
-                     txtDetails.Text += "\r\nTaille : " + TransformerTailleEnTexte(item.Taille);
-            }
-            else
-            {
-                txtDetails.Text = "";
-            }
-            
-        }
-
-        private void tlstrpMainAnnulerAnalyse_Click(object sender, EventArgs e)
-        {
-            AnnulerAnalyse();
-        }
-
-        private void bgwAnalyse_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
-        {
-
-            m_moteur.Analyse();
-            
-        }
-
-        private void bgwAnalyse_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
-        {
-            sbPrincipaleStatut.Text = "Complété";
-        }
-
         private void minTempsEcoule_Tick(object sender, EventArgs e)
         {
             TimeSpan ts = DateTime.Now - m_HeureDepartAnalyse;
             sbPrincipaleTempsEcoule.Text = ts.ToString().Substring(0,8);//ts.Hours.ToString() + ":" + ts.Minutes.ToString() + ":" + ts.Seconds.ToString();
         }
 
+        #region NotifyIcon Et son menu contextuelle ===============================================
         ///****************************************************************************************
         /// <summary>
-        /// Ajuste les options de la fenêtre selon l'état du moteur
+        /// Lorsque double cliquer, on réaffiche le
         /// </summary>
         ///****************************************************************************************
-        private void AjusterFenetreSelonEtat()
+        private void niEsGace_DoubleClick(object sender, EventArgs e)
         {
-            switch (m_moteur.EtatEngin)
-            {
-                case Engin.Etat.EnCours:
-                    mnuPrincipalAnalyseAnnuler.Enabled = true;
-                    mnuPrincipalAnalyseComplete.Enabled =false;
-                    sbPrincipaleTempsEcoule.Image = Properties.Resources.Analyse_Go;
-                    sbPrincipaleMarquee.Visible = true;
-                    break;
-                case Engin.Etat.Annuler:
-                    mnuPrincipalAnalyseAnnuler.Enabled = false;
-                    mnuPrincipalAnalyseComplete.Enabled = true;
-                    sbPrincipaleTempsEcoule.Image = Properties.Resources.Analyse_Arret;
-                    sbPrincipaleMarquee.Visible = false;
-                    break;
-                case Engin.Etat.AnnulationEnAttente:
-                    mnuPrincipalAnalyseAnnuler.Enabled = false;
-                    mnuPrincipalAnalyseComplete.Enabled = false;
-                    
-                    break;
-                case Engin.Etat.Erreur:
-                    mnuPrincipalAnalyseAnnuler.Enabled = false;
-                    mnuPrincipalAnalyseComplete.Enabled = true;
-                    sbPrincipaleTempsEcoule.Image = Properties.Resources.Analyse_Erreur;
-                    sbPrincipaleMarquee.Visible = false;
-                    break;
-                case Engin.Etat.EnAttente:
-                    mnuPrincipalAnalyseAnnuler.Enabled = false;
-                    mnuPrincipalAnalyseComplete.Enabled = true;
-                    sbPrincipaleTempsEcoule.Image = Properties.Resources.Analyse_Arret;
-                    sbPrincipaleMarquee.Visible = false;
-                    break;
-                default:
-                    break;
-            }
-            // Copie l'état dans la toolbar.
-            tlstrpMainAnalyseComplete.Enabled = mnuPrincipalAnalyseComplete.Enabled;
-            tlstrpMainAnnulerAnalyse.Enabled = mnuPrincipalAnalyseAnnuler.Enabled;
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+            this.BringToFront();
+            
+            this.Activate();
+            
         }
+        #endregion
+
+
 
     }
     /////////////////////////////////////////////////////////////////////////////////////////////// 

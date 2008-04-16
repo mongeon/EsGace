@@ -58,5 +58,29 @@ namespace EsGace.Properties {
                 this["AfficherFichierAnalyse"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AfficherIconeNotification {
+            get {
+                return ((bool)(this["AfficherIconeNotification"]));
+            }
+            set {
+                this["AfficherIconeNotification"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool MinimizerLorsReduction {
+            get {
+                return ((bool)(this["MinimizerLorsReduction"]));
+            }
+            set {
+                this["MinimizerLorsReduction"] = value;
+            }
+        }
     }
 }

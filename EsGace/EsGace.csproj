@@ -50,9 +50,23 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="TreemapControl, Version=1.0.1.38, Culture=neutral, PublicKeyToken=3f6121a52ebf7c82">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Informatique\Microsoft Research\Visualization Components\Treemap\Latest\Components\TreemapControl.dll</HintPath>
+    </Reference>
+    <Reference Include="TreemapGenerator, Version=1.0.1.38, Culture=neutral, PublicKeyToken=3f6121a52ebf7c82">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Informatique\Microsoft Research\Visualization Components\Treemap\Latest\Components\TreemapGenerator.DLL</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\SplashAppContext.cs" />
+    <Compile Include="Composantes\TabControlOutils.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Composantes\TabControlOutils.Designer.cs">
+      <DependentUpon>TabControlOutils.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\APropos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +181,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\control_play_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Contrôles\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

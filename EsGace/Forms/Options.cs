@@ -9,6 +9,11 @@ using System.Windows.Forms;
 
 namespace EsGace.Forms
 {
+    ///////////////////////////////////////////////////////////////////////////////////////////////
+    /// <summary>
+    /// Classe contenant toutes les options disponibles dans l'application
+    /// </summary>
+    ///////////////////////////////////////////////////////////////////////////////////////////////
     public partial class Options : Form
     {
         public Options()
@@ -29,6 +34,19 @@ namespace EsGace.Forms
         {
             Properties.Settings.Default.Reload();
             this.Close();
+        }
+        ///****************************************************************************************
+        /// <summary>
+        /// Change l'état lorsque on clic sur la case
+        /// </summary>
+        ///****************************************************************************************
+        private void chkAfficherNotifyIcon_CheckedChanged(object sender, EventArgs e)
+        {
+
+
+            lblReduireZoneNotification.Enabled = chkAfficherNotifyIcon.Checked;
+            chkReduireZoneNotification.Enabled = chkAfficherNotifyIcon.Checked;
+
         }
     }
 }

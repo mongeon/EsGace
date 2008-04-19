@@ -82,5 +82,17 @@ namespace EsGace.Properties {
                 this["MinimizerLorsReduction"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("(Default)")]
+        public global::System.Globalization.CultureInfo Culture {
+            get {
+                return ((global::System.Globalization.CultureInfo)(this["Culture"]));
+            }
+            set {
+                this["Culture"] = value;
+            }
+        }
     }
 }

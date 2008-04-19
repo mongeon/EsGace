@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Globalization;
+using System.Threading;
 
 namespace EsGace.Forms
 {
@@ -42,11 +44,8 @@ namespace EsGace.Forms
         ///****************************************************************************************
         private void chkAfficherNotifyIcon_CheckedChanged(object sender, EventArgs e)
         {
-
-
             lblReduireZoneNotification.Enabled = chkAfficherNotifyIcon.Checked;
             chkReduireZoneNotification.Enabled = chkAfficherNotifyIcon.Checked;
-
         }
     }
 }

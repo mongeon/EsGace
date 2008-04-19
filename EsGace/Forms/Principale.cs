@@ -79,8 +79,7 @@ namespace EsGace.Forms
         private void mnuPrincipalOutilsOptions_Click(object sender, EventArgs e)
         {
             Options opt = new Options();
-
-            opt.ShowDialog();
+            opt.ShowDialog(this);
 
             niEsGace.Visible = Properties.Settings.Default.AfficherIconeNotification;
         }

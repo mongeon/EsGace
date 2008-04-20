@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Globalization;
 using System.Threading;
 using System.Windows.Forms;
 using EsGace.Classes;
 using EsGace.Forms;
-using System.Globalization;
 
 namespace EsGace
 {
@@ -16,8 +16,8 @@ namespace EsGace
         static void Main()
         {
              // Test de culture anglaise
-            //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
-            //Thread.CurrentThread.CurrentCulture = new CultureInfo("en-ca",false);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-ca",false);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

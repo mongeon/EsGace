@@ -1,6 +1,6 @@
 ﻿namespace EsGace.Composantes
 {
-    partial class TabControlOutils
+    partial class LinkEsGace
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.SuspendLayout();
+            // 
+            // LinkEsGace
+            // 
+            this.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.ResumeLayout(false);
 
         }

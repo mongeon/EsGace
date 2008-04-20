@@ -61,12 +61,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\FonctionsGenerales.cs" />
     <Compile Include="Classes\SplashAppContext.cs" />
+    <Compile Include="Composantes\LinkEsGace.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Composantes\LinkEsGace.Designer.cs">
+      <DependentUpon>LinkEsGace.cs</DependentUpon>
+    </Compile>
     <Compile Include="Composantes\TabControlOutils.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Composantes\TabControlOutils.Designer.cs">
       <DependentUpon>TabControlOutils.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Composantes\TabPageOutils.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Composantes\TabPageOutils.Designer.cs">
+      <DependentUpon>TabPageOutils.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contrôles\DetailsItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Contrôles\DetailsItem.Designer.cs">
+      <DependentUpon>DetailsItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\APropos.cs">
       <SubType>Form</SubType>
@@ -92,8 +111,25 @@
     <Compile Include="Forms\Principale.Designer.cs">
       <DependentUpon>Principale.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interface\iControleItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Composantes\LinkEsGace.resx">
+      <DependentUpon>LinkEsGace.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Composantes\TabControlOutils.resx">
+      <DependentUpon>TabControlOutils.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contrôles\DetailsItem.en.resx">
+      <DependentUpon>DetailsItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contrôles\DetailsItem.resx">
+      <DependentUpon>DetailsItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\APropos.en.resx">
       <DependentUpon>APropos.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -197,9 +233,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="SINEWAVE.ICO" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Contrôles\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

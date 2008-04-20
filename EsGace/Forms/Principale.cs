@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using EsGaceEngin;
+using EsGace.Contrôles;
+using EsGace.Classes;
 
 //Private Declare Function SetForegroundWindow Lib "user32.dll" (ByVal hWnd As IntPtr) As Boolean
  
@@ -117,7 +119,8 @@ namespace EsGace.Forms
         ///****************************************************************************************
         private void PrincipaleForm_Load(object sender, EventArgs e)
         {
-            
+            // Ajout de l'onglet détails dans la liste
+            //tcOutilsAdditionnels.Controls.Add(new TabPageDetails());
 
             tvEsGace.TreeViewNodeSorter = new NodeSorter();
             ChargementImage();
@@ -351,7 +354,7 @@ namespace EsGace.Forms
             if (item.Taille >= 0)
             {
                 tn.Text = item.Nom + "  ["
-                + TransformerTailleEnTexte(item.Taille)
+                + FonctionsGenerales.TransformerTailleEnTexte(item.Taille)
                 + "]";
             }
             if (item is Fichier == false) { tn.Nodes.Add("Dummy"); }
@@ -437,10 +440,9 @@ namespace EsGace.Forms
             if (e.Node.Tag is Item)
             {
                 Item item = (Item)e.Node.Tag;
-                txtDetails.Text = item.Nom;
-                txtDetails.Text += "\r\n" + item.Chemin;
-                if (item.Taille >= 0)
-                    txtDetails.Text += "\r\nTaille : " + TransformerTailleEnTexte(item.Taille);
+                diPrincipale.ItemCourant = item;
+
+            
             }
             else
             {
@@ -461,29 +463,7 @@ namespace EsGace.Forms
             Application.Exit(); 
         }
 
-        private string TransformerTailleEnTexte(long taille)
-        {
-            Double TailleD = Convert.ToDouble(taille);
-            int dec = Convert.ToInt32( Properties.Settings.Default.Decimal);
-            if (TailleD <= 1024)
-            {
-                return Math.Round(TailleD, dec).ToString() + " o";
-            }
-            else if (TailleD <= 1024 * 1024)
-            {
-                return Math.Round((TailleD / 1024), dec).ToString() + " ko";
-            }
-            else if (TailleD <= 1024 * 1024 * 1024)
-            {
-                return Math.Round((TailleD / (1024 * 1024)), dec).ToString() + " mo";
-            }
-            else 
-            {
-                return Math.Round((TailleD / (1024 * 1024 * 1024)), dec).ToString() + " go";
-
-            }
-
-        }
+        
         ///****************************************************************************************
         /// <summary>
         /// Lance l'analyse complète

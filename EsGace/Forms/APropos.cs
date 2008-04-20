@@ -16,7 +16,6 @@ namespace EsGace.Forms
             this.labelCompanyName.Text = AssemblyCompany;
             this.textBoxDescription.Text = AssemblyDescription;
 
-            this.textBoxDescription.Text = "\r\nUtilisation des icônes de FamFamFam";
         }
 
         #region Assembly Attribute Accessors
@@ -104,6 +103,18 @@ namespace EsGace.Forms
         private void lnkSiteWeb_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("http://mongeon.devrpm.ca/wiki/doku.php?id=logiciels:esgace");
+        }
+
+        private void lnkFamFamFam_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://www.famfamfam.com/");
+        }
+
+        private void lnkTreeMap_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://research.microsoft.com/community/code/visualization/Components/Treemap/Latest/Documents/Overview/Overview.htm?0sr=a");
+
+
         }
     }
 }

@@ -36,7 +36,11 @@ namespace EsGace.Contrôles
             ItemCourant = cItem;
         }
 
-
+        ///****************************************************************************************
+        /// <summary>
+        /// Ajuste les contrôles selon l'item courant.
+        /// </summary>
+        ///****************************************************************************************
         private void AjusterControles()
         {
             // Ajustement de l'Accessibilité des contrôles.
@@ -66,6 +70,12 @@ namespace EsGace.Contrôles
             }
         }
 
+
+        ///****************************************************************************************
+        /// <summary>
+        /// REmplit les contrôles d'informations concernant l'item courant
+        /// </summary>
+        ///****************************************************************************************
         private void RemplirControles()
         {
             if (m_itemCourant == null || m_itemCourant.TypeItem == Item.eTypeItem.Indefini)

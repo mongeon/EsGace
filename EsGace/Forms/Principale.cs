@@ -413,23 +413,26 @@ namespace EsGace.Forms
 
         private void tvEsGace_BeforeExpand(object sender, TreeViewCancelEventArgs e)
         {
-            e.Node.Nodes.Clear();
-
-            //foreach (TreeNode tn in e.Node.Nodes)
-            //{
-            //    foreach (Item item in ((Item)tn.Tag).GetEnfants)
-            //    {
-            //        AjouterItemArbre(tn, item);
-            //    }
-            //}
-            if (e.Node.Tag != null && e.Node.Tag is EsGaceEngin.Item)
+            if (e.Node != null)
             {
+                e.Node.Nodes.Clear();
 
-                List<Item> itemsEnfants = ((EsGaceEngin.Item)e.Node.Tag).GetEnfants;
-
-                foreach (Item item in itemsEnfants)
+                //foreach (TreeNode tn in e.Node.Nodes)
+                //{
+                //    foreach (Item item in ((Item)tn.Tag).GetEnfants)
+                //    {
+                //        AjouterItemArbre(tn, item);
+                //    }
+                //}
+                if (e.Node.Tag != null && e.Node.Tag is EsGaceEngin.Item)
                 {
-                    AjouterItemArbre(e.Node, item);
+
+                    List<Item> itemsEnfants = ((EsGaceEngin.Item)e.Node.Tag).GetEnfants;
+
+                    foreach (Item item in itemsEnfants)
+                    {
+                        AjouterItemArbre(e.Node, item);
+                    }
                 }
             }
 
@@ -437,16 +440,19 @@ namespace EsGace.Forms
         }
         private void tvEsGace_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if (e.Node.Tag is Item)
+            if (e.Node != null)
             {
-                Item item = (Item)e.Node.Tag;
-                diPrincipale.ItemCourant = item;
+                if (e.Node.Tag is Item)
+                {
+                    Item item = (Item)e.Node.Tag;
+                    diPrincipale.ItemCourant = item;
+                    tmiPrincipale.ItemCourant = item;
 
-            
-            }
-            else
-            {
-                txtDetails.Text = "";
+                }
+                else
+                {
+                    txtDetails.Text = "";
+                }
             }
 
         }

@@ -104,6 +104,12 @@
     <Compile Include="Contrôles\DetailsItem.Designer.cs">
       <DependentUpon>DetailsItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contrôles\TreeMapItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Contrôles\TreeMapItem.Designer.cs">
+      <DependentUpon>TreeMapItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\APropos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Contrôles\DetailsItem.resx">
       <DependentUpon>DetailsItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contrôles\TreeMapItem.resx">
+      <DependentUpon>TreeMapItem.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesEsGace.en.resx">

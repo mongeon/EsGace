@@ -309,6 +309,57 @@
   <data name="&gt;&gt;tpDetails.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="tmiPrincipale.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tmiPrincipale.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="tmiPrincipale.Size" type="System.Drawing.Size, System.Drawing">
+    <value>385, 328</value>
+  </data>
+  <data name="tmiPrincipale.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tmiPrincipale.Name" xml:space="preserve">
+    <value>tmiPrincipale</value>
+  </data>
+  <data name="&gt;&gt;tmiPrincipale.Type" xml:space="preserve">
+    <value>EsGace.Contrôles.TreeMapItem, EsGace, Version=0.0.1.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;tmiPrincipale.Parent" xml:space="preserve">
+    <value>tpVisualisation</value>
+  </data>
+  <data name="&gt;&gt;tmiPrincipale.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tpVisualisation.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tpVisualisation.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tpVisualisation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>391, 334</value>
+  </data>
+  <data name="tpVisualisation.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tpVisualisation.Text" xml:space="preserve">
+    <value>Visualisation</value>
+  </data>
+  <data name="&gt;&gt;tpVisualisation.Name" xml:space="preserve">
+    <value>tpVisualisation</value>
+  </data>
+  <data name="&gt;&gt;tpVisualisation.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tpVisualisation.Parent" xml:space="preserve">
+    <value>tcOutilsAdditionnels</value>
+  </data>
+  <data name="&gt;&gt;tpVisualisation.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="tcOutilsAdditionnels.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -378,18 +429,18 @@
   <data name="tlstrpMainAnalyseComplete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        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
 </value>
   </data>
   <data name="tlstrpMainAnalyseComplete.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -732,6 +783,9 @@
         D/8CACCADwIAIAIAIIAPAiIiIiIggA8AAAAAAACAD////////wAAAAAAAAAAAAAAAAAAAAAA//8AAIAB
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQAA//8AAA==
 </value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>300, 400</value>

@@ -117,23 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="tpDetails.Text" xml:space="preserve">
+    <value>Details</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="tlstrpMainAnalyseComplete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAApZJREFUOE91U0tL
-        alEU9vYDnPsT/BciDhpaQgjeBpZBQlpDH0SSBhE1aSBJKaW3B2X5AAu18lFZWseoLArLQRoHBR05Cs5Z
-        d60NGkUeOGz22nt96/u+tdcfSY/v+vp69PPz8y8ASHD9p1Qqvb3uduMPDw/yq6srKSb1XV5eNj4+PqBW
-        q0EwGGzMzMz0HR4eSg8ODuS/At3e3q6m02mhUCjwmUxGls1m+UqlAm9vbxAKhfj9/X0ZAvHb29vCxsbG
-        6jcQTLa/vr5Cs9mEcrkMmNwOh8Pi09MTlEol8Pv9Iia3URbwPA9HR0ewsLBg74Lk8/lppCcSCCW8vLww
-        oA4A7e/v74EAUCJYrVZxampq+huLi4uLOUq+ubkBBIREIgFra2uAdIkR5HI5QGms+vz8/Fw3GRG5s7Oz
-        ajKZbD0/PwPHcXB8fAyzs7M5i8WiQvNUi4uLObzDgOgc9y2Xy1XFO5wklUoJ9Xqd0aXKxWIRNjc3wel0
-        qjpVPB6PCj2A8/NzxozYkLnDw8MCA3h/f2ca6YAqRCIRWF5e7gK43W7Vzs4OY0ASsFvsvkajESTr6+vc
-        0tJS1ev1trAbDIR88Pl8OapMQCSB9JO0eDwOer2+NTQ0VEUArusFUpxDI5lRtOJDgt3dXcC+s9jp6SnE
-        YjEWMxqNXyYSwt7e3vTKyor4+PjIkqldd3d3zBMCIkYUPzk5YWdms1kcGxv7amMgELATPXp5W1tbgM63
-        8RfJNNJtMpnE8fHxNp2RdofDAYODg18PiVhgcBW1CQaDgbfZbDLsAk/ViMHIyAiv0+lkWq2WVygUQn9/
-        //en3DFicnJSjtWkNDj4N4hyNBoFTGbDhKtUrVb/Pkw/J2xiYmIUK6YGBgZSSHe01yj/B2Q1IFtoBQ1C
-        AAAAAElFTkSuQmCC
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAApBJREFUOE91U0tL
+        clEU9esHOPcn9CsCceBQC0LQQT4Cg6yGPogkCyJq0sAQHxR+VqgpBhWVpWbZw27hE0VrkMZFIUeOBO/+
+        9j6g0UdduBzOY6291trn/BH98mWzWX2v19MAgAjHv1Kp1Pvb2eF6oVAYvb+/FyNo5O7urv3x8QHNZhPC
+        4XB7aWlp5OTkRByJREZ/JHp5eXEnEon+4+Mjn0qlJNfX1/zb2xu8vr5CNBrlDw8PJUjE7+/v93d3d93f
+        SBBsq9fr8Pn5CbVaDRDcRZBQLpehWCwCAgQEd9EW8DwPp6ensL6+bhuSPDw8LB4fHwtEQoBqtcqIBgQ0
+        z+fzQARoESwWi7CwsLD4TcXt7e0qgZ+engAJ4fz8HDweD1UnRZDJZACtsepra2urQzAycul0unFxcdGp
+        VCrAcRzE43FYXl7OmM1mGYYn29jYyOAZRkT7OO+srKw08AwnouBarRaTS5Wfn58hEAiAw+GQDaq4XC4Z
+        ZgA3NzdMGamhcDUaTZ8RvL+/M4+0QRVisRhsbW0NCZxOp+zg4IApIAvJZJKdHx8f74t2dna4zc3Nhtfr
+        7WA3GAnl4PP5MlSZiMgC+SdrZ2dnoNVqO5OTk42JiQlumAVKXMUgWVA04kWCYDAI2He2dnV1BdgptjYz
+        M/MVIjGEQqHF7e1toVQqMTC1K5fLsUyIiBTR+uXlJdubm5sTpqenv9ro9/ttJI9u3t7eHmDyXfwFCo18
+        m0wmwWg0dmmPvNvtdvL/dZFIBS66p6am+gaDgbdarRLsAk/VSIFOp+PVarVEpVLxY2Njfblc/v0qD4KY
+        n58fxWpiejj4t0ny0dERIJg9JhzFCoXi58f0/wubnZ3VY8WEUqlMoFz9b0/5HyqfIEDb4jIuAAAAAElF
+        TkSuQmCC
 </value>
   </data>
   <data name="tlstrpMainAnalyseComplete.Text" xml:space="preserve">
@@ -142,17 +145,23 @@
   <data name="tlstrpMainAnnulerAnalyse.Text" xml:space="preserve">
     <value>Cancel analysis</value>
   </data>
+  <data name="mnuPrincipalFichier.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 20</value>
+  </data>
+  <data name="mnuPrincipalFichier.Text" xml:space="preserve">
+    <value>&amp;File</value>
+  </data>
   <data name="mnuPrincipalFichierQuitter.Size" type="System.Drawing.Size, System.Drawing">
     <value>147, 22</value>
   </data>
   <data name="mnuPrincipalFichierQuitter.Text" xml:space="preserve">
     <value>&amp;Quit</value>
   </data>
-  <data name="mnuPrincipalFichier.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 20</value>
+  <data name="mnuPrincipalAnalyse.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 20</value>
   </data>
-  <data name="mnuPrincipalFichier.Text" xml:space="preserve">
-    <value>&amp;File</value>
+  <data name="mnuPrincipalAnalyse.Text" xml:space="preserve">
+    <value>&amp;Analysis</value>
   </data>
   <data name="mnuPrincipalAnalyseComplete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -178,12 +187,6 @@
   <data name="mnuPrincipalAnalyseAnnuler.Text" xml:space="preserve">
     <value>&amp;Cancel</value>
   </data>
-  <data name="mnuPrincipalAnalyse.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 20</value>
-  </data>
-  <data name="mnuPrincipalAnalyse.Text" xml:space="preserve">
-    <value>&amp;Analysis</value>
-  </data>
   <data name="mnuPrincipalOutils.Size" type="System.Drawing.Size, System.Drawing">
     <value>44, 20</value>
   </data>
@@ -195,6 +198,9 @@
   </data>
   <data name="mnuPrincipalAPAP.Text" xml:space="preserve">
     <value>&amp;About...</value>
+  </data>
+  <data name="cmnuNotify.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 82</value>
   </data>
   <data name="cmnuNotifyOuvrir.Size" type="System.Drawing.Size, System.Drawing">
     <value>159, 22</value>
@@ -219,9 +225,6 @@
   </data>
   <data name="cmnuNotifyQuitter.Text" xml:space="preserve">
     <value>&amp;Quit</value>
-  </data>
-  <data name="cmnuNotify.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 82</value>
   </data>
   <data name="niEsGace.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -266,5 +269,9 @@
         D/8CACCADwIAIAIAIIAPAiIiIiIggA8AAAAAAACAD////////wAAAAAAAAAAAAAAAAAAAAAA//8AAIAB
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQAA//8AAA==
 </value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
   </data>
 </root>

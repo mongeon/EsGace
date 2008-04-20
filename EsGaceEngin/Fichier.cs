@@ -6,10 +6,21 @@ namespace EsGaceEngin
     public class Fichier : Repertoire, iItem
     {
         private FileInfo m_InfosFichier;
-        public Fichier(string Chemin)
+        //public Fichier(string Chemin)
+        //{
+        //    m_InfosFichier = new FileInfo(Chemin);
+        //    base.Nom = m_InfosFichier.Name;
+        //    base.m_tItem = eTypeItem.Fichier;
+
+
+        //}
+        public Fichier(string Chemin, Item aParent)
         {
             m_InfosFichier = new FileInfo(Chemin);
             base.Nom = m_InfosFichier.Name;
+            base.m_tItem = eTypeItem.Fichier;
+            this.Parent = aParent;
+
 
         }
         public override List<Item> GetEnfants
@@ -28,6 +39,17 @@ namespace EsGaceEngin
             set
             {
                 base.Chemin = value;
+            }
+        }
+        public override string CheminComplet
+        {
+            get
+            {
+                 return  m_InfosFichier.FullName;
+            }
+            set
+            {
+                base.CheminComplet = value;
             }
         }
         public override long Taille

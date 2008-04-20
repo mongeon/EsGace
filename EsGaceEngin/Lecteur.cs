@@ -10,13 +10,14 @@ namespace EsGaceEngin
         {
             m_InfosDisque = new DriveInfo(LettreDisque);
             base.Nom = m_InfosDisque.Name;
-
+            base.m_tItem= eTypeItem.Lecteur;
 
         }
         public Lecteur(DriveInfo InfosDisque)
         {
             m_InfosDisque = InfosDisque;
             base.Nom = m_InfosDisque.Name;
+            base.m_tItem = eTypeItem.Lecteur;
         }
         public override long Taille
         {
@@ -65,6 +66,17 @@ namespace EsGaceEngin
                 base.Chemin = value;
             }
         }
+        public override string CheminComplet
+        {
+            get
+            {
+                return m_InfosDisque.RootDirectory.FullName;
+            }
+            set
+            {
+                base.CheminComplet = value;
+            }
+        }
         public override List<Item> GetEnfants
         {
             get
@@ -79,11 +91,11 @@ namespace EsGaceEngin
 
                     foreach (DirectoryInfo dir in new DirectoryInfo(this.Nom).GetDirectories())
                     {
-                        this.m_Enfants.Add(new Repertoire(dir.FullName));
+                        this.m_Enfants.Add(new Repertoire(dir.FullName,this));
                     }
                     foreach (FileInfo file in new DirectoryInfo(this.Nom).GetFiles())
                     {
-                        this.m_Enfants.Add(new Fichier(file.FullName));
+                        this.m_Enfants.Add(new Fichier(file.FullName,this));
                     }
                 }
                 return base.GetEnfants;

@@ -1,6 +1,6 @@
 ﻿namespace EsGace.Composantes
 {
-    partial class TabControlOutils
+    partial class TabPageOutils
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            this.ResumeLayout(false);
-
+            components = new System.ComponentModel.Container();
         }
 
         #endregion

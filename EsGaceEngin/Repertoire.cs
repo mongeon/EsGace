@@ -7,14 +7,24 @@ namespace EsGaceEngin
     public class Repertoire : Item, iItem
     {
         DirectoryInfo m_InfosRepertoire;
-        public Repertoire()
+        internal Repertoire()
         {
 
         }
-        public Repertoire(string Chemin)
+        //public Repertoire(string Chemin)
+        //{
+        //    m_InfosRepertoire = new DirectoryInfo(Chemin);
+        //    base.Nom = m_InfosRepertoire.Name;
+        //    base.m_tItem = eTypeItem.Repertoire;
+
+        //}
+        public Repertoire(string Chemin, Item aParent)
         {
             m_InfosRepertoire = new DirectoryInfo(Chemin);
             base.Nom = m_InfosRepertoire.Name;
+            base.m_tItem = eTypeItem.Repertoire;
+            this.Parent = aParent;
+
         }
         /// <summary>
         /// Retourne si le répertoire existe.
@@ -32,6 +42,17 @@ namespace EsGaceEngin
             get
             {
                 return m_InfosRepertoire.Parent.FullName;
+            }
+            set
+            {
+                base.Chemin = value;
+            }
+        }
+        public override string CheminComplet
+        {
+            get
+            {
+                return m_InfosRepertoire.FullName;
             }
             set
             {
@@ -82,11 +103,12 @@ namespace EsGaceEngin
                     {
                         foreach (DirectoryInfo dir in m_InfosRepertoire.GetDirectories())
                         {
-                            this.m_Enfants.Add(new Repertoire(dir.FullName));
+                            this.m_Enfants.Add(new Repertoire(dir.FullName,this));
+                            
                         }
                         foreach (FileInfo file in m_InfosRepertoire.GetFiles())
                         {
-                            this.m_Enfants.Add(new Fichier(file.FullName));
+                            this.m_Enfants.Add(new Fichier(file.FullName,this));
                         }
                     }
                     catch (Exception)

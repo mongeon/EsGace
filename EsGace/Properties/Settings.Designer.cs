@@ -94,5 +94,17 @@ namespace EsGace.Properties {
                 this["Culture"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public int TreeMapProfondeur {
+            get {
+                return ((int)(this["TreeMapProfondeur"]));
+            }
+            set {
+                this["TreeMapProfondeur"] = value;
+            }
+        }
     }
 }

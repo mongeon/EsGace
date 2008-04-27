@@ -34,6 +34,11 @@
             this.tvEsGace = new System.Windows.Forms.TreeView();
             this.txtDetails = new System.Windows.Forms.TextBox();
             this.splMainVertical = new System.Windows.Forms.SplitContainer();
+            this.tcOutilsAdditionnels = new EsGace.Composantes.TabControlOutils(this.components);
+            this.tpDetails = new System.Windows.Forms.TabPage();
+            this.diPrincipale = new EsGace.Contrôles.DetailsItem();
+            this.tpVisualisation = new System.Windows.Forms.TabPage();
+            this.tmiPrincipale = new EsGace.Contrôles.TreeMapItem();
             this.tspHaut = new System.Windows.Forms.ToolStripPanel();
             this.tlstrpMain = new System.Windows.Forms.ToolStrip();
             this.tlstrpMainAnalyseComplete = new System.Windows.Forms.ToolStripButton();
@@ -61,25 +66,20 @@
             this.cmnuNotifyBar1 = new System.Windows.Forms.ToolStripSeparator();
             this.cmnuNotifyQuitter = new System.Windows.Forms.ToolStripMenuItem();
             this.niEsGace = new System.Windows.Forms.NotifyIcon(this.components);
-            this.tcOutilsAdditionnels = new EsGace.Composantes.TabControlOutils(this.components);
-            this.tpDetails = new System.Windows.Forms.TabPage();
-            this.diPrincipale = new EsGace.Contrôles.DetailsItem();
-            this.tpVisualisation = new System.Windows.Forms.TabPage();
-            this.tmiPrincipale = new EsGace.Contrôles.TreeMapItem();
             this.splMainHorizontal.Panel1.SuspendLayout();
             this.splMainHorizontal.Panel2.SuspendLayout();
             this.splMainHorizontal.SuspendLayout();
             this.splMainVertical.Panel1.SuspendLayout();
             this.splMainVertical.Panel2.SuspendLayout();
             this.splMainVertical.SuspendLayout();
+            this.tcOutilsAdditionnels.SuspendLayout();
+            this.tpDetails.SuspendLayout();
+            this.tpVisualisation.SuspendLayout();
             this.tspHaut.SuspendLayout();
             this.tlstrpMain.SuspendLayout();
             this.mnuPrincipal.SuspendLayout();
             this.sbPrincipale.SuspendLayout();
             this.cmnuNotify.SuspendLayout();
-            this.tcOutilsAdditionnels.SuspendLayout();
-            this.tpDetails.SuspendLayout();
-            this.tpVisualisation.SuspendLayout();
             this.SuspendLayout();
             // 
             // splMainHorizontal
@@ -123,6 +123,41 @@
             // splMainVertical.Panel2
             // 
             this.splMainVertical.Panel2.Controls.Add(this.tcOutilsAdditionnels);
+            // 
+            // tcOutilsAdditionnels
+            // 
+            this.tcOutilsAdditionnels.Controls.Add(this.tpDetails);
+            this.tcOutilsAdditionnels.Controls.Add(this.tpVisualisation);
+            resources.ApplyResources(this.tcOutilsAdditionnels, "tcOutilsAdditionnels");
+            this.tcOutilsAdditionnels.Name = "tcOutilsAdditionnels";
+            this.tcOutilsAdditionnels.SelectedIndex = 0;
+            // 
+            // tpDetails
+            // 
+            this.tpDetails.Controls.Add(this.diPrincipale);
+            resources.ApplyResources(this.tpDetails, "tpDetails");
+            this.tpDetails.Name = "tpDetails";
+            this.tpDetails.UseVisualStyleBackColor = true;
+            // 
+            // diPrincipale
+            // 
+            resources.ApplyResources(this.diPrincipale, "diPrincipale");
+            this.diPrincipale.BackColor = System.Drawing.SystemColors.Control;
+            this.diPrincipale.ItemCourant = null;
+            this.diPrincipale.Name = "diPrincipale";
+            // 
+            // tpVisualisation
+            // 
+            this.tpVisualisation.Controls.Add(this.tmiPrincipale);
+            resources.ApplyResources(this.tpVisualisation, "tpVisualisation");
+            this.tpVisualisation.Name = "tpVisualisation";
+            this.tpVisualisation.UseVisualStyleBackColor = true;
+            // 
+            // tmiPrincipale
+            // 
+            resources.ApplyResources(this.tmiPrincipale, "tmiPrincipale");
+            this.tmiPrincipale.ItemCourant = null;
+            this.tmiPrincipale.Name = "tmiPrincipale";
             // 
             // tspHaut
             // 
@@ -318,41 +353,6 @@
             this.niEsGace.Visible = global::EsGace.Properties.Settings.Default.AfficherIconeNotification;
             this.niEsGace.DoubleClick += new System.EventHandler(this.niEsGace_DoubleClick);
             // 
-            // tcOutilsAdditionnels
-            // 
-            this.tcOutilsAdditionnels.Controls.Add(this.tpDetails);
-            this.tcOutilsAdditionnels.Controls.Add(this.tpVisualisation);
-            resources.ApplyResources(this.tcOutilsAdditionnels, "tcOutilsAdditionnels");
-            this.tcOutilsAdditionnels.Name = "tcOutilsAdditionnels";
-            this.tcOutilsAdditionnels.SelectedIndex = 0;
-            // 
-            // tpDetails
-            // 
-            this.tpDetails.Controls.Add(this.diPrincipale);
-            resources.ApplyResources(this.tpDetails, "tpDetails");
-            this.tpDetails.Name = "tpDetails";
-            this.tpDetails.UseVisualStyleBackColor = true;
-            // 
-            // diPrincipale
-            // 
-            resources.ApplyResources(this.diPrincipale, "diPrincipale");
-            this.diPrincipale.BackColor = System.Drawing.SystemColors.Control;
-            this.diPrincipale.ItemCourant = null;
-            this.diPrincipale.Name = "diPrincipale";
-            // 
-            // tpVisualisation
-            // 
-            this.tpVisualisation.Controls.Add(this.tmiPrincipale);
-            resources.ApplyResources(this.tpVisualisation, "tpVisualisation");
-            this.tpVisualisation.Name = "tpVisualisation";
-            this.tpVisualisation.UseVisualStyleBackColor = true;
-            // 
-            // tmiPrincipale
-            // 
-            resources.ApplyResources(this.tmiPrincipale, "tmiPrincipale");
-            this.tmiPrincipale.ItemCourant = null;
-            this.tmiPrincipale.Name = "tmiPrincipale";
-            // 
             // PrincipaleForm
             // 
             resources.ApplyResources(this, "$this");
@@ -374,6 +374,10 @@
             this.splMainVertical.Panel1.ResumeLayout(false);
             this.splMainVertical.Panel2.ResumeLayout(false);
             this.splMainVertical.ResumeLayout(false);
+            this.tcOutilsAdditionnels.ResumeLayout(false);
+            this.tpDetails.ResumeLayout(false);
+            this.tpDetails.PerformLayout();
+            this.tpVisualisation.ResumeLayout(false);
             this.tspHaut.ResumeLayout(false);
             this.tspHaut.PerformLayout();
             this.tlstrpMain.ResumeLayout(false);
@@ -383,10 +387,6 @@
             this.sbPrincipale.ResumeLayout(false);
             this.sbPrincipale.PerformLayout();
             this.cmnuNotify.ResumeLayout(false);
-            this.tcOutilsAdditionnels.ResumeLayout(false);
-            this.tpDetails.ResumeLayout(false);
-            this.tpDetails.PerformLayout();
-            this.tpVisualisation.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

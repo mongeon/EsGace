@@ -54,44 +54,80 @@ namespace EsGace.Contrôles
                 tmcCtl.Clear();
                 if (m_itemCourant is Item)
                 {
-                    switch (m_itemCourant.TypeItem)
-                    {
-                        case Item.eTypeItem.Lecteur:
-                        case Item.eTypeItem.Repertoire:
-                            tmcCtl.MinColorMetric = -1;
-                            tmcCtl.MaxColorMetric = m_itemCourant.Taille;
-
-                            foreach (Item item in m_itemCourant.GetEnfants)
-                            {
-                                long lTaille;
-                                long lMetricColor;
-                                if (item.Taille <=0)
-                                {
-                                    lMetricColor = -1;
-                                    lTaille = 0;
-                                }
-                                else
-                                {
-                                    lMetricColor = item.Taille;
-                                    lTaille = item.Taille;
-                                }
-
-                                string sNom = item.Nom + " [" + FonctionsGenerales.TransformerTailleEnTexte(item.Taille) + "]";
-                               Microsoft.Research.CommunityTechnologies.Treemap.Node  node =
-                                    new Microsoft.Research.CommunityTechnologies.Treemap.Node(sNom, lTaille, lMetricColor);
-                                node.ToolTip =sNom;
-                                tmcCtl.Nodes.Add(node);
-                            }
-                            break;
-                        default:
-                            break;
-                    }
+                    tmcCtl.MinColorMetric = -1;
+                    tmcCtl.MaxColorMetric = m_itemCourant.Taille;
+                    AjouterNoeud(null, 0);
                 }
                 //AjusterControles();
                 //RemplirControles();
             }
         }
+        private void AjouterNoeud(Microsoft.Research.CommunityTechnologies.Treemap.Node noeudParent, int Profondeur)
+        {
+            Item ItemParent;
 
+            if (noeudParent == null)
+            {
+                ItemParent = m_itemCourant;
+            }
+            else if (noeudParent.Tag is Item)
+            {
+
+                ItemParent = (Item)noeudParent.Tag;
+            }
+            else
+            {
+                return;
+            }
+
+            switch (ItemParent.TypeItem)
+            {
+                case Item.eTypeItem.Lecteur:
+                case Item.eTypeItem.Repertoire:
+
+
+                    foreach (Item item in ItemParent.GetEnfants)
+                    {
+                        long lTaille;
+                        long lMetricColor;
+                        if (item.Taille <= 0)
+                        {
+                            lMetricColor = -1;
+                            lTaille = 0;
+                        }
+                        else
+                        {
+                            lMetricColor = item.Taille;
+                            lTaille = item.Taille;
+                        }
+
+                        string sNom = item.Nom + " [" + FonctionsGenerales.TransformerTailleEnTexte(item.Taille) + "]";
+                        Microsoft.Research.CommunityTechnologies.Treemap.Node node =
+                             new Microsoft.Research.CommunityTechnologies.Treemap.Node(sNom, lTaille, lMetricColor);
+                        node.ToolTip = sNom;
+                        node.Tag = item;
+
+
+                        if (noeudParent == null)
+                        {
+                            tmcCtl.Nodes.Add(node);
+                        }
+                        else
+                        {
+                            noeudParent.Nodes.Add(node);
+                        }
+                        if ( Profondeur < Properties.Settings.Default.TreeMapProfondeur)
+	                    {
+                            AjouterNoeud(node, Profondeur + 1);
+	                    }
+                        
+                        
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
         #endregion
 
         private void tmcCtl_NodeDoubleClick(object sender, Microsoft.Research.CommunityTechnologies.Treemap.NodeEventArgs nodeEventArgs)
@@ -104,7 +140,7 @@ namespace EsGace.Contrôles
             {
                 tmcCtl.ZoomOut();
             }
-            
+
         }
     }
 }

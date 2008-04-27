@@ -128,9 +128,6 @@
   <data name="lnkTreeMap.Text" xml:space="preserve">
     <value>The TreeMap control is a Microsoft Research product</value>
   </data>
-  <data name="lnkTreeMap.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="lnkFamFamFam.LinkArea" type="System.Windows.Forms.LinkArea, System.Windows.Forms">
     <value>22, 20</value>
   </data>
@@ -139,15 +136,6 @@
   </data>
   <data name="lnkFamFamFam.Text" xml:space="preserve">
     <value>This software use the FamFamFam Silk icons</value>
-  </data>
-  <data name="lnkFamFamFam.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="textBoxDescription.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="tlpRemerciements.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="lnkSiteWeb.Size" type="System.Drawing.Size, System.Drawing">
     <value>124, 13</value>
@@ -643,32 +631,5 @@
         f/JTwn4ppjwv/98feKZSe+fe/ZvR/2b0L0z9fzP65zrd4Bd+of9l/vf/ZvS/Gf3rIvu/Gf1vRv+6GP3/
         AZ+4Ui+mkTlKAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="logoPictureBox.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="labelProductName.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="labelVersion.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="labelCopyright.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="labelCompanyName.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="okButton.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="tableLayoutPanel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>Inherit</value>
-  </data>
-  <data name="$this.ToolTip" xml:space="preserve">
-    <value />
   </data>
 </root>

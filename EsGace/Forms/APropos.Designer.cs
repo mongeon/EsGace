@@ -49,10 +49,7 @@
             // 
             // tableLayoutPanel
             // 
-            this.tableLayoutPanel.AccessibleDescription = null;
-            this.tableLayoutPanel.AccessibleName = null;
             resources.ApplyResources(this.tableLayoutPanel, "tableLayoutPanel");
-            this.tableLayoutPanel.BackgroundImage = null;
             this.tableLayoutPanel.Controls.Add(this.tlpRemerciements, 1, 4);
             this.tableLayoutPanel.Controls.Add(this.lnkSiteWeb, 1, 5);
             this.tableLayoutPanel.Controls.Add(this.logoPictureBox, 0, 0);
@@ -61,66 +58,43 @@
             this.tableLayoutPanel.Controls.Add(this.labelCopyright, 1, 2);
             this.tableLayoutPanel.Controls.Add(this.labelCompanyName, 1, 3);
             this.tableLayoutPanel.Controls.Add(this.okButton, 2, 5);
-            this.tableLayoutPanel.Font = null;
             this.tableLayoutPanel.Name = "tableLayoutPanel";
-            this.tipPropos.SetToolTip(this.tableLayoutPanel, resources.GetString("tableLayoutPanel.ToolTip"));
             // 
             // tlpRemerciements
             // 
-            this.tlpRemerciements.AccessibleDescription = null;
-            this.tlpRemerciements.AccessibleName = null;
             resources.ApplyResources(this.tlpRemerciements, "tlpRemerciements");
-            this.tlpRemerciements.BackgroundImage = null;
             this.tableLayoutPanel.SetColumnSpan(this.tlpRemerciements, 2);
             this.tlpRemerciements.Controls.Add(this.lnkTreeMap, 0, 2);
             this.tlpRemerciements.Controls.Add(this.lnkFamFamFam, 0, 1);
             this.tlpRemerciements.Controls.Add(this.textBoxDescription, 0, 0);
-            this.tlpRemerciements.Font = null;
             this.tlpRemerciements.Name = "tlpRemerciements";
-            this.tipPropos.SetToolTip(this.tlpRemerciements, resources.GetString("tlpRemerciements.ToolTip"));
             // 
             // lnkTreeMap
             // 
-            this.lnkTreeMap.AccessibleDescription = null;
-            this.lnkTreeMap.AccessibleName = null;
             resources.ApplyResources(this.lnkTreeMap, "lnkTreeMap");
-            this.lnkTreeMap.Font = null;
             this.lnkTreeMap.Name = "lnkTreeMap";
             this.lnkTreeMap.TabStop = true;
-            this.tipPropos.SetToolTip(this.lnkTreeMap, resources.GetString("lnkTreeMap.ToolTip"));
             this.lnkTreeMap.UseCompatibleTextRendering = true;
             this.lnkTreeMap.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkTreeMap_LinkClicked);
             // 
             // lnkFamFamFam
             // 
-            this.lnkFamFamFam.AccessibleDescription = null;
-            this.lnkFamFamFam.AccessibleName = null;
             resources.ApplyResources(this.lnkFamFamFam, "lnkFamFamFam");
-            this.lnkFamFamFam.Font = null;
             this.lnkFamFamFam.Name = "lnkFamFamFam";
             this.lnkFamFamFam.TabStop = true;
-            this.tipPropos.SetToolTip(this.lnkFamFamFam, resources.GetString("lnkFamFamFam.ToolTip"));
             this.lnkFamFamFam.UseCompatibleTextRendering = true;
             this.lnkFamFamFam.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkFamFamFam_LinkClicked);
             // 
             // textBoxDescription
             // 
-            this.textBoxDescription.AccessibleDescription = null;
-            this.textBoxDescription.AccessibleName = null;
-            resources.ApplyResources(this.textBoxDescription, "textBoxDescription");
-            this.textBoxDescription.BackgroundImage = null;
             this.textBoxDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxDescription.Font = null;
+            resources.ApplyResources(this.textBoxDescription, "textBoxDescription");
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ReadOnly = true;
-            this.tipPropos.SetToolTip(this.textBoxDescription, resources.GetString("textBoxDescription.ToolTip"));
             // 
             // lnkSiteWeb
             // 
-            this.lnkSiteWeb.AccessibleDescription = null;
-            this.lnkSiteWeb.AccessibleName = null;
             resources.ApplyResources(this.lnkSiteWeb, "lnkSiteWeb");
-            this.lnkSiteWeb.Font = null;
             this.lnkSiteWeb.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.lnkSiteWeb.Name = "lnkSiteWeb";
             this.lnkSiteWeb.TabStop = true;
@@ -129,90 +103,57 @@
             // 
             // logoPictureBox
             // 
-            this.logoPictureBox.AccessibleDescription = null;
-            this.logoPictureBox.AccessibleName = null;
             resources.ApplyResources(this.logoPictureBox, "logoPictureBox");
-            this.logoPictureBox.BackgroundImage = null;
-            this.logoPictureBox.Font = null;
-            this.logoPictureBox.ImageLocation = null;
             this.logoPictureBox.Name = "logoPictureBox";
             this.tableLayoutPanel.SetRowSpan(this.logoPictureBox, 6);
             this.logoPictureBox.TabStop = false;
-            this.tipPropos.SetToolTip(this.logoPictureBox, resources.GetString("logoPictureBox.ToolTip"));
             // 
             // labelProductName
             // 
-            this.labelProductName.AccessibleDescription = null;
-            this.labelProductName.AccessibleName = null;
-            resources.ApplyResources(this.labelProductName, "labelProductName");
             this.tableLayoutPanel.SetColumnSpan(this.labelProductName, 2);
-            this.labelProductName.Font = null;
+            resources.ApplyResources(this.labelProductName, "labelProductName");
             this.labelProductName.MaximumSize = new System.Drawing.Size(0, 17);
             this.labelProductName.Name = "labelProductName";
-            this.tipPropos.SetToolTip(this.labelProductName, resources.GetString("labelProductName.ToolTip"));
             // 
             // labelVersion
             // 
-            this.labelVersion.AccessibleDescription = null;
-            this.labelVersion.AccessibleName = null;
-            resources.ApplyResources(this.labelVersion, "labelVersion");
             this.tableLayoutPanel.SetColumnSpan(this.labelVersion, 2);
-            this.labelVersion.Font = null;
+            resources.ApplyResources(this.labelVersion, "labelVersion");
             this.labelVersion.MaximumSize = new System.Drawing.Size(0, 17);
             this.labelVersion.Name = "labelVersion";
-            this.tipPropos.SetToolTip(this.labelVersion, resources.GetString("labelVersion.ToolTip"));
             // 
             // labelCopyright
             // 
-            this.labelCopyright.AccessibleDescription = null;
-            this.labelCopyright.AccessibleName = null;
-            resources.ApplyResources(this.labelCopyright, "labelCopyright");
             this.tableLayoutPanel.SetColumnSpan(this.labelCopyright, 2);
-            this.labelCopyright.Font = null;
+            resources.ApplyResources(this.labelCopyright, "labelCopyright");
             this.labelCopyright.MaximumSize = new System.Drawing.Size(0, 17);
             this.labelCopyright.Name = "labelCopyright";
-            this.tipPropos.SetToolTip(this.labelCopyright, resources.GetString("labelCopyright.ToolTip"));
             // 
             // labelCompanyName
             // 
-            this.labelCompanyName.AccessibleDescription = null;
-            this.labelCompanyName.AccessibleName = null;
-            resources.ApplyResources(this.labelCompanyName, "labelCompanyName");
             this.tableLayoutPanel.SetColumnSpan(this.labelCompanyName, 2);
-            this.labelCompanyName.Font = null;
+            resources.ApplyResources(this.labelCompanyName, "labelCompanyName");
             this.labelCompanyName.MaximumSize = new System.Drawing.Size(0, 17);
             this.labelCompanyName.Name = "labelCompanyName";
-            this.tipPropos.SetToolTip(this.labelCompanyName, resources.GetString("labelCompanyName.ToolTip"));
             // 
             // okButton
             // 
-            this.okButton.AccessibleDescription = null;
-            this.okButton.AccessibleName = null;
             resources.ApplyResources(this.okButton, "okButton");
-            this.okButton.BackgroundImage = null;
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.okButton.Font = null;
             this.okButton.Name = "okButton";
-            this.tipPropos.SetToolTip(this.okButton, resources.GetString("okButton.ToolTip"));
             // 
             // APropos
             // 
             this.AcceptButton = this.okButton;
-            this.AccessibleDescription = null;
-            this.AccessibleName = null;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = null;
             this.Controls.Add(this.tableLayoutPanel);
-            this.Font = null;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Icon = null;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "APropos";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.tipPropos.SetToolTip(this, resources.GetString("$this.ToolTip"));
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
             this.tlpRemerciements.ResumeLayout(false);

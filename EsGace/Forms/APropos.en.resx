@@ -117,26 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lnkTreeMap.LinkArea" type="System.Windows.Forms.LinkArea, System.Windows.Forms">
-    <value>25, 18</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lnkTreeMap.Size" type="System.Drawing.Size, System.Drawing">
-    <value>271, 17</value>
-  </data>
-  <data name="lnkTreeMap.Text" xml:space="preserve">
-    <value>The TreeMap control is a Microsoft Research product</value>
-  </data>
-  <data name="lnkFamFamFam.LinkArea" type="System.Windows.Forms.LinkArea, System.Windows.Forms">
-    <value>22, 20</value>
-  </data>
-  <data name="lnkFamFamFam.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 17</value>
-  </data>
-  <data name="lnkFamFamFam.Text" xml:space="preserve">
-    <value>This software use the FamFamFam Silk icons</value>
-  </data>
   <data name="lnkSiteWeb.Size" type="System.Drawing.Size, System.Drawing">
     <value>124, 13</value>
   </data>
@@ -631,5 +612,24 @@
         f/JTwn4ppjwv/98feKZSe+fe/ZvR/2b0L0z9fzP65zrd4Bd+of9l/vf/ZvS/Gf3rIvu/Gf1vRv+6GP3/
         AZ+4Ui+mkTlKAAAAAElFTkSuQmCC
 </value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lnkTreeMap.LinkArea" type="System.Windows.Forms.LinkArea, System.Windows.Forms">
+    <value>25, 18</value>
+  </data>
+  <data name="lnkTreeMap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>271, 17</value>
+  </data>
+  <data name="lnkTreeMap.Text" xml:space="preserve">
+    <value>The TreeMap control is a Microsoft Research product</value>
+  </data>
+  <data name="lnkFamFamFam.LinkArea" type="System.Windows.Forms.LinkArea, System.Windows.Forms">
+    <value>22, 20</value>
+  </data>
+  <data name="lnkFamFamFam.Size" type="System.Drawing.Size, System.Drawing">
+    <value>233, 17</value>
+  </data>
+  <data name="lnkFamFamFam.Text" xml:space="preserve">
+    <value>This software use the FamFamFam Silk icons</value>
   </data>
 </root>

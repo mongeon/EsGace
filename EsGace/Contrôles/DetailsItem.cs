@@ -2,6 +2,7 @@
 using EsGace.Classes;
 using EsGace.Interface;
 using EsGaceEngin;
+using EsGace.Composantes;
 
 namespace EsGace.Contrôles
 {
@@ -10,10 +11,11 @@ namespace EsGace.Contrôles
     /// Contrôle affichant les détails de l'item courant en cours.
     /// </summary>
     ///////////////////////////////////////////////////////////////////////////////////////////////
-    public partial class DetailsItem : UserControl,iControleItem
+    public partial class DetailsItem : TabPageOutils
     {
+        
         #region Variables =========================================================================
-        Item m_itemCourant;
+        //Item m_itemCourant;
         #endregion
         ///****************************************************************************************
         /// <summary>
@@ -33,7 +35,8 @@ namespace EsGace.Contrôles
             InitializeComponent();
 
             // Initialisation de l'item courant.
-            ItemCourant = cItem;
+            m_ItemCourant = cItem;
+            
         }
 
         ///****************************************************************************************
@@ -44,7 +47,7 @@ namespace EsGace.Contrôles
         private void AjusterControles()
         {
             // Ajustement de l'Accessibilité des contrôles.
-            if (m_itemCourant == null || m_itemCourant.TypeItem == Item.eTypeItem.Indefini)
+            if (m_ItemCourant == null || m_ItemCourant.TypeItem == Item.eTypeItem.Indefini)
             {
                 this.Enabled = false;
             }
@@ -55,7 +58,7 @@ namespace EsGace.Contrôles
                 this.Enabled = true;
                 lnkOuvrir.Enabled = true;
 
-                switch (m_itemCourant.TypeItem)
+                switch (m_ItemCourant.TypeItem)
                 {
                     case Item.eTypeItem.Lecteur:
                         lnkOuvrirDossier.Enabled = false;
@@ -78,7 +81,7 @@ namespace EsGace.Contrôles
         ///****************************************************************************************
         private void RemplirControles()
         {
-            if (m_itemCourant == null || m_itemCourant.TypeItem == Item.eTypeItem.Indefini)
+            if (m_ItemCourant == null || m_ItemCourant.TypeItem == Item.eTypeItem.Indefini)
             {
                 txtNom.Text = "";
                 txtRepertoire.Text = "";
@@ -87,34 +90,13 @@ namespace EsGace.Contrôles
             else
             {
 
-                txtNom.Text = m_itemCourant.Nom;
-                txtRepertoire.Text = m_itemCourant.Chemin;
-                txtTaille.Text = FonctionsGenerales.TransformerTailleEnTexte(m_itemCourant.Taille);
+                txtNom.Text = m_ItemCourant.Nom;
+                txtRepertoire.Text = m_ItemCourant.Chemin;
+                txtTaille.Text = FonctionsGenerales.TransformerTailleEnTexte(m_ItemCourant.Taille);
                
             }
         }
-        #region iControleItem Membres =============================================================
-        ///****************************************************************************************
-        /// <summary>
-        /// Item courant, celui affiché dans le contrôle.
-        /// </summary>
-        ///****************************************************************************************
-        public Item ItemCourant
-        {
-            get
-            {
-                return m_itemCourant;
-            }
-            set
-            {
-                m_itemCourant = value;
 
-                AjusterControles();
-                RemplirControles();
-            }
-        }
-
-        #endregion
 
         ///****************************************************************************************
         /// <summary>
@@ -123,9 +105,9 @@ namespace EsGace.Contrôles
         ///****************************************************************************************
         private void lnkOuvrirDossier_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (m_itemCourant != null && m_itemCourant.Parent is Item)
+            if (m_ItemCourant != null && m_ItemCourant.Parent is Item)
             {
-                System.Diagnostics.Process.Start(((Item)m_itemCourant.Parent).CheminComplet);
+                System.Diagnostics.Process.Start(((Item)m_ItemCourant.Parent).CheminComplet);
             }
         }
 
@@ -136,10 +118,15 @@ namespace EsGace.Contrôles
         ///****************************************************************************************
         private void lnkOuvrir_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (m_itemCourant != null )
+            if (m_ItemCourant != null)
             {
-                System.Diagnostics.Process.Start(((Item)m_itemCourant).CheminComplet);
+                System.Diagnostics.Process.Start(((Item)m_ItemCourant).CheminComplet);
             }
+        }
+        public override void SetItemDansTabPage()
+        {
+            AjusterControles();
+            RemplirControles();
         }
     }
 }

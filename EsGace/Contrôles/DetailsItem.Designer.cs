@@ -121,7 +121,6 @@
             this.AccessibleDescription = null;
             this.AccessibleName = null;
             resources.ApplyResources(this, "$this");
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = null;
             this.Controls.Add(this.txtTaille);
             this.Controls.Add(this.lblTaille);

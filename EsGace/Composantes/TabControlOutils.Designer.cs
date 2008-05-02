@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.SuspendLayout();
+            // 
+            // TabControlOutils
+            // 
+            this.Selected += new System.Windows.Forms.TabControlEventHandler(this.TabControlOutils_Selected);
             this.ResumeLayout(false);
 
         }

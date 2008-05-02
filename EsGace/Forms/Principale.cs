@@ -445,7 +445,8 @@ namespace EsGace.Forms
                 if (e.Node.Tag is Item)
                 {
                     Item item = (Item)e.Node.Tag;
-                    diPrincipale.ItemCourant = item;
+                    tcOutilsAdditionnels.Item = item;
+                    //diPrincipale.ItemCourant = item;
                     tmiPrincipale.ItemCourant = item;
 
                 }

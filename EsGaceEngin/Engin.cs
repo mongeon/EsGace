@@ -84,9 +84,11 @@ namespace EsGaceEngin
             get { return m_DisquesRacine; }
         }
 
+        ///****************************************************************************************
         /// <summary>
         /// Constructeur
         /// </summary>
+        ///****************************************************************************************
         public Engin()
         {
             m_bgwAnalyse = new BackgroundWorker();
@@ -98,10 +100,14 @@ namespace EsGaceEngin
 
             m_DisquesRacine = new List<Lecteur>();
 
+            // Parcours tous les disques disponibles
             foreach (string disque in Directory.GetLogicalDrives())
             {
+                // Il les ajoutes.
                 m_DisquesRacine.Add(new Lecteur(disque));
             }
+
+            Statistiques stats=new Statistiques(@"F:\Mes Documents\Visual Studio 2008\Projects\EsGace\Stats.xml");
         }
 
         void m_bgwAnalyse_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

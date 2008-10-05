@@ -23,5 +23,8 @@
     <Setting Name="TreeMapProfondeur" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">2</Value>
     </Setting>
+    <Setting Name="FichierXMLStats" Type="System.String" Scope="User">
+      <Value Profile="(Default)">F:\Mes Documents\Visual Studio 2008\Projects\EsGace\Stats.xml</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

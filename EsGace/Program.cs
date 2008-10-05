@@ -15,10 +15,11 @@ namespace EsGace
         [STAThread]
         static void Main()
         {
-             // Test de culture anglaise
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
-            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-ca",false);
 
+             // Test de culture anglaise
+            //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
+            //Thread.CurrentThread.CurrentCulture = new CultureInfo("en-ca",false);
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 

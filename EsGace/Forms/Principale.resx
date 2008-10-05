@@ -402,18 +402,18 @@
   <data name="tlstrpMainAnalyseComplete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        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
-        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
+        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
 </value>
   </data>
   <data name="tlstrpMainAnalyseComplete.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">

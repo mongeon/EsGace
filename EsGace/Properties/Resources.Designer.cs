@@ -60,6 +60,13 @@ namespace EsGace.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap About {
+            get {
+                object obj = ResourceManager.GetObject("About", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Analyse {
             get {
                 object obj = ResourceManager.GetObject("Analyse", resourceCulture);
@@ -133,6 +140,13 @@ namespace EsGace.Properties {
         internal static System.Drawing.Bitmap Repertoire {
             get {
                 object obj = ResourceManager.GetObject("Repertoire", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Splash {
+            get {
+                object obj = ResourceManager.GetObject("Splash", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

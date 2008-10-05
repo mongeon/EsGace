@@ -106,5 +106,17 @@ namespace EsGace.Properties {
                 this["TreeMapProfondeur"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("F:\\Mes Documents\\Visual Studio 2008\\Projects\\EsGace\\Stats.xml")]
+        public string FichierXMLStats {
+            get {
+                return ((string)(this["FichierXMLStats"]));
+            }
+            set {
+                this["FichierXMLStats"] = value;
+            }
+        }
     }
 }

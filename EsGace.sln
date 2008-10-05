@@ -7,9 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsGaceEngin", "EsGaceEngin\
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "EsgaceSetup", "EsgaceSetup\EsgaceSetup.vdproj", "{31A6DD09-5866-4351-8933-FD41ECB76666}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsGace2", "EsGace2\EsGace2.csproj", "{56F2C71E-0A1F-4993-9C83-BAC865C2E11E}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 4
+		SccNumberOfProjects = 5
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs07.codeplex.com/
 		SccLocalPath0 = .
@@ -22,6 +24,9 @@ Global
 		SccProjectUniqueName3 = EsgaceSetup\\EsgaceSetup.vdproj
 		SccProjectName3 = EsgaceSetup
 		SccLocalPath3 = EsgaceSetup
+		SccProjectUniqueName4 = EsGace2\\EsGace2.csproj
+		SccProjectName4 = EsGace2
+		SccLocalPath4 = EsGace2
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +44,10 @@ Global
 		{31A6DD09-5866-4351-8933-FD41ECB76666}.Debug|Any CPU.ActiveCfg = Debug
 		{31A6DD09-5866-4351-8933-FD41ECB76666}.Release|Any CPU.ActiveCfg = Release
 		{31A6DD09-5866-4351-8933-FD41ECB76666}.Release|Any CPU.Build.0 = Release
+		{56F2C71E-0A1F-4993-9C83-BAC865C2E11E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56F2C71E-0A1F-4993-9C83-BAC865C2E11E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56F2C71E-0A1F-4993-9C83-BAC865C2E11E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56F2C71E-0A1F-4993-9C83-BAC865C2E11E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

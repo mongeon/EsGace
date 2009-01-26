@@ -175,13 +175,13 @@
     <value>3, 33</value>
   </data>
   <data name="lnkFamFamFam.Size" type="System.Drawing.Size, System.Drawing">
-    <value>232, 17</value>
+    <value>234, 17</value>
   </data>
   <data name="lnkFamFamFam.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="lnkFamFamFam.Text" xml:space="preserve">
-    <value>Ce logicel utilise les icônes FamFamFam Silk</value>
+    <value>Ce logiciel utilise les icônes FamFamFam Silk</value>
   </data>
   <data name="&gt;&gt;lnkFamFamFam.Name" xml:space="preserve">
     <value>lnkFamFamFam</value>

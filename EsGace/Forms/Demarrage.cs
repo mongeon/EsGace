@@ -15,5 +15,10 @@ namespace EsGace.Forms
         {
             InitializeComponent();
         }
+
+        public static void Statut(string Statut)
+        {
+           // lblStatus.Text = Statut;
+        }
     }
 }

@@ -4,6 +4,8 @@ using System.Threading;
 using System.Windows.Forms;
 using EsGace.Classes;
 using EsGace.Forms;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace EsGace
 {
@@ -16,10 +18,10 @@ namespace EsGace
         static void Main()
         {
 
-             // Test de culture anglaise
+            // Test de culture anglaise
             //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
             //Thread.CurrentThread.CurrentCulture = new CultureInfo("en-ca",false);
-            
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
@@ -29,19 +31,20 @@ namespace EsGace
             {
                 if (isFirstInstance)
                 {
-                    Classes.SplashAppContext splashContext = 
+                    Classes.SplashAppContext splashContext =
                         new SplashAppContext(new Forms.PrincipaleForm(), new Demarrage());
                     Application.Run(splashContext);
-                    //Application.Run(new Forms.PrincipaleForm());
                 }
                 else
                 {
                     // The application is already running
                     // TODO: Display message box or change focus to existing application instance
-                    MessageBox.Show("EsGace est déjà ouvert");
-
+                    MessageBox.Show("EsGace est déjà ouvert", "EsGace", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                   
                 }
             } // releases the Mutex
         }
+
     }
+
+
 }

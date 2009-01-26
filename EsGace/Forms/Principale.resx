@@ -117,303 +117,33 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="splMainHorizontal.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="splMainHorizontal.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="splMainHorizontal.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
-    <value>Horizontal</value>
-  </data>
-  <data name="tvEsGace.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="tvEsGace.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="tvEsGace.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="tvEsGace.Size" type="System.Drawing.Size, System.Drawing">
-    <value>414, 360</value>
-  </data>
-  <data name="tvEsGace.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tvEsGace.Name" xml:space="preserve">
-    <value>tvEsGace</value>
-  </data>
-  <data name="&gt;&gt;tvEsGace.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TreeView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tvEsGace.Parent" xml:space="preserve">
-    <value>splMainHorizontal.Panel1</value>
-  </data>
-  <data name="&gt;&gt;tvEsGace.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;splMainHorizontal.Panel1.Name" xml:space="preserve">
-    <value>splMainHorizontal.Panel1</value>
-  </data>
-  <data name="&gt;&gt;splMainHorizontal.Panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splMainHorizontal.Panel1.Parent" xml:space="preserve">
-    <value>splMainHorizontal</value>
-  </data>
-  <data name="&gt;&gt;splMainHorizontal.Panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="txtDetails.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="txtDetails.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="txtDetails.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="txtDetails.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
-    <value>Vertical</value>
-  </data>
-  <data name="txtDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>414, 76</value>
-  </data>
-  <data name="txtDetails.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;txtDetails.Name" xml:space="preserve">
-    <value>txtDetails</value>
-  </data>
-  <data name="&gt;&gt;txtDetails.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtDetails.Parent" xml:space="preserve">
-    <value>splMainHorizontal.Panel2</value>
-  </data>
-  <data name="&gt;&gt;txtDetails.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;splMainHorizontal.Panel2.Name" xml:space="preserve">
-    <value>splMainHorizontal.Panel2</value>
-  </data>
-  <data name="&gt;&gt;splMainHorizontal.Panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splMainHorizontal.Panel2.Parent" xml:space="preserve">
-    <value>splMainHorizontal</value>
-  </data>
-  <data name="&gt;&gt;splMainHorizontal.Panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="splMainHorizontal.Size" type="System.Drawing.Size, System.Drawing">
-    <value>414, 360</value>
-  </data>
-  <data name="splMainHorizontal.SplitterDistance" type="System.Int32, mscorlib">
-    <value>280</value>
-  </data>
-  <data name="splMainHorizontal.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;splMainHorizontal.Name" xml:space="preserve">
-    <value>splMainHorizontal</value>
-  </data>
-  <data name="&gt;&gt;splMainHorizontal.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splMainHorizontal.Parent" xml:space="preserve">
-    <value>splMainVertical.Panel1</value>
-  </data>
-  <data name="&gt;&gt;splMainHorizontal.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="splMainVertical.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="splMainVertical.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 49</value>
-  </data>
-  <data name="&gt;&gt;splMainVertical.Panel1.Name" xml:space="preserve">
-    <value>splMainVertical.Panel1</value>
-  </data>
-  <data name="&gt;&gt;splMainVertical.Panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splMainVertical.Panel1.Parent" xml:space="preserve">
-    <value>splMainVertical</value>
-  </data>
-  <data name="&gt;&gt;splMainVertical.Panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tpDetails.AutoScroll" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="tpDetails.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="tpDetails.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tpDetails.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tpDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>391, 334</value>
-  </data>
-  <data name="tpDetails.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="tpDetails.Text" xml:space="preserve">
-    <value>Détails</value>
-  </data>
-  <data name="&gt;&gt;tpDetails.Name" xml:space="preserve">
-    <value>tpDetails</value>
-  </data>
-  <data name="&gt;&gt;tpDetails.Type" xml:space="preserve">
-    <value>EsGace.Contrôles.DetailsItem, EsGace, Version=0.0.1.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;tpDetails.Parent" xml:space="preserve">
-    <value>tcOutilsAdditionnels</value>
-  </data>
-  <data name="&gt;&gt;tpDetails.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tmiPrincipale.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tmiPrincipale.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="tmiPrincipale.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 328</value>
-  </data>
-  <data name="tmiPrincipale.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tmiPrincipale.Name" xml:space="preserve">
-    <value>tmiPrincipale</value>
-  </data>
-  <data name="&gt;&gt;tmiPrincipale.Type" xml:space="preserve">
-    <value>EsGace.Contrôles.TreeMapItem, EsGace, Version=0.0.1.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;tmiPrincipale.Parent" xml:space="preserve">
-    <value>tpVisualisation</value>
-  </data>
-  <data name="&gt;&gt;tmiPrincipale.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tpVisualisation.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tpVisualisation.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tpVisualisation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>391, 334</value>
-  </data>
-  <data name="tpVisualisation.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="tpVisualisation.Text" xml:space="preserve">
-    <value>Visualisation</value>
-  </data>
-  <data name="&gt;&gt;tpVisualisation.Name" xml:space="preserve">
-    <value>tpVisualisation</value>
-  </data>
-  <data name="&gt;&gt;tpVisualisation.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tpVisualisation.Parent" xml:space="preserve">
-    <value>tcOutilsAdditionnels</value>
-  </data>
-  <data name="&gt;&gt;tpVisualisation.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="tcOutilsAdditionnels.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tcOutilsAdditionnels.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="tcOutilsAdditionnels.Size" type="System.Drawing.Size, System.Drawing">
-    <value>399, 360</value>
-  </data>
-  <data name="tcOutilsAdditionnels.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tcOutilsAdditionnels.Name" xml:space="preserve">
-    <value>tcOutilsAdditionnels</value>
-  </data>
-  <data name="&gt;&gt;tcOutilsAdditionnels.Type" xml:space="preserve">
-    <value>EsGace.Composantes.TabControlOutils, EsGace, Version=0.0.1.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;tcOutilsAdditionnels.Parent" xml:space="preserve">
-    <value>splMainVertical.Panel2</value>
-  </data>
-  <data name="&gt;&gt;tcOutilsAdditionnels.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;splMainVertical.Panel2.Name" xml:space="preserve">
-    <value>splMainVertical.Panel2</value>
-  </data>
-  <data name="&gt;&gt;splMainVertical.Panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splMainVertical.Panel2.Parent" xml:space="preserve">
-    <value>splMainVertical</value>
-  </data>
-  <data name="&gt;&gt;splMainVertical.Panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="splMainVertical.Size" type="System.Drawing.Size, System.Drawing">
-    <value>817, 360</value>
-  </data>
-  <data name="splMainVertical.SplitterDistance" type="System.Int32, mscorlib">
-    <value>414</value>
-  </data>
-  <data name="splMainVertical.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;splMainVertical.Name" xml:space="preserve">
-    <value>splMainVertical</value>
-  </data>
-  <data name="&gt;&gt;splMainVertical.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splMainVertical.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;splMainVertical.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <metadata name="tlstrpMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>0, 0</value>
   </metadata>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="tlstrpMain.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>None</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="tlstrpMainAnalyseComplete.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="tlstrpMainAnalyseComplete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        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
 </value>
   </data>
   <data name="tlstrpMainAnalyseComplete.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -725,6 +455,276 @@
   </data>
   <data name="niEsGace.Text" xml:space="preserve">
     <value>EsGace</value>
+  </data>
+  <data name="splMainVertical.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="splMainVertical.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 49</value>
+  </data>
+  <data name="splMainHorizontal.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="splMainHorizontal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="splMainHorizontal.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
+  </data>
+  <data name="tvEsGace.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tvEsGace.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="tvEsGace.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tvEsGace.Size" type="System.Drawing.Size, System.Drawing">
+    <value>414, 360</value>
+  </data>
+  <data name="tvEsGace.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tvEsGace.Name" xml:space="preserve">
+    <value>tvEsGace</value>
+  </data>
+  <data name="&gt;&gt;tvEsGace.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TreeView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tvEsGace.Parent" xml:space="preserve">
+    <value>splMainHorizontal.Panel1</value>
+  </data>
+  <data name="&gt;&gt;tvEsGace.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splMainHorizontal.Panel1.Name" xml:space="preserve">
+    <value>splMainHorizontal.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splMainHorizontal.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splMainHorizontal.Panel1.Parent" xml:space="preserve">
+    <value>splMainHorizontal</value>
+  </data>
+  <data name="&gt;&gt;splMainHorizontal.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="txtDetails.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="txtDetails.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="txtDetails.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtDetails.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
+  </data>
+  <data name="txtDetails.Size" type="System.Drawing.Size, System.Drawing">
+    <value>414, 281</value>
+  </data>
+  <data name="txtDetails.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtDetails.Name" xml:space="preserve">
+    <value>txtDetails</value>
+  </data>
+  <data name="&gt;&gt;txtDetails.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtDetails.Parent" xml:space="preserve">
+    <value>splMainHorizontal.Panel2</value>
+  </data>
+  <data name="&gt;&gt;txtDetails.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splMainHorizontal.Panel2.Name" xml:space="preserve">
+    <value>splMainHorizontal.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splMainHorizontal.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splMainHorizontal.Panel2.Parent" xml:space="preserve">
+    <value>splMainHorizontal</value>
+  </data>
+  <data name="&gt;&gt;splMainHorizontal.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splMainHorizontal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>414, 360</value>
+  </data>
+  <data name="splMainHorizontal.SplitterDistance" type="System.Int32, mscorlib">
+    <value>75</value>
+  </data>
+  <data name="splMainHorizontal.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;splMainHorizontal.Name" xml:space="preserve">
+    <value>splMainHorizontal</value>
+  </data>
+  <data name="&gt;&gt;splMainHorizontal.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splMainHorizontal.Parent" xml:space="preserve">
+    <value>splMainVertical.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splMainHorizontal.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splMainVertical.Panel1.Name" xml:space="preserve">
+    <value>splMainVertical.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splMainVertical.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splMainVertical.Panel1.Parent" xml:space="preserve">
+    <value>splMainVertical</value>
+  </data>
+  <data name="&gt;&gt;splMainVertical.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tpDetails.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="tpDetails.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="tpDetails.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tpDetails.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tpDetails.Size" type="System.Drawing.Size, System.Drawing">
+    <value>391, 334</value>
+  </data>
+  <data name="tpDetails.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tpDetails.Text" xml:space="preserve">
+    <value>Détails</value>
+  </data>
+  <data name="&gt;&gt;tpDetails.Name" xml:space="preserve">
+    <value>tpDetails</value>
+  </data>
+  <data name="&gt;&gt;tpDetails.Type" xml:space="preserve">
+    <value>EsGace.Contrôles.DetailsItem, EsGace, Version=0.0.1.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;tpDetails.Parent" xml:space="preserve">
+    <value>tcOutilsAdditionnels</value>
+  </data>
+  <data name="&gt;&gt;tpDetails.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tmiPrincipale.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tmiPrincipale.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="tmiPrincipale.Size" type="System.Drawing.Size, System.Drawing">
+    <value>385, 328</value>
+  </data>
+  <data name="tmiPrincipale.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tmiPrincipale.Name" xml:space="preserve">
+    <value>tmiPrincipale</value>
+  </data>
+  <data name="&gt;&gt;tmiPrincipale.Type" xml:space="preserve">
+    <value>EsGace.Contrôles.TreeMapItem, EsGace, Version=0.0.1.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;tmiPrincipale.Parent" xml:space="preserve">
+    <value>tpVisualisation</value>
+  </data>
+  <data name="&gt;&gt;tmiPrincipale.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tpVisualisation.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tpVisualisation.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tpVisualisation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>391, 334</value>
+  </data>
+  <data name="tpVisualisation.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tpVisualisation.Text" xml:space="preserve">
+    <value>Visualisation</value>
+  </data>
+  <data name="&gt;&gt;tpVisualisation.Name" xml:space="preserve">
+    <value>tpVisualisation</value>
+  </data>
+  <data name="&gt;&gt;tpVisualisation.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tpVisualisation.Parent" xml:space="preserve">
+    <value>tcOutilsAdditionnels</value>
+  </data>
+  <data name="&gt;&gt;tpVisualisation.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tcOutilsAdditionnels.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tcOutilsAdditionnels.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tcOutilsAdditionnels.Size" type="System.Drawing.Size, System.Drawing">
+    <value>399, 360</value>
+  </data>
+  <data name="tcOutilsAdditionnels.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tcOutilsAdditionnels.Name" xml:space="preserve">
+    <value>tcOutilsAdditionnels</value>
+  </data>
+  <data name="&gt;&gt;tcOutilsAdditionnels.Type" xml:space="preserve">
+    <value>EsGace.Composantes.TabControlOutils, EsGace, Version=0.0.1.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;tcOutilsAdditionnels.Parent" xml:space="preserve">
+    <value>splMainVertical.Panel2</value>
+  </data>
+  <data name="&gt;&gt;tcOutilsAdditionnels.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splMainVertical.Panel2.Name" xml:space="preserve">
+    <value>splMainVertical.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splMainVertical.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splMainVertical.Panel2.Parent" xml:space="preserve">
+    <value>splMainVertical</value>
+  </data>
+  <data name="&gt;&gt;splMainVertical.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splMainVertical.Size" type="System.Drawing.Size, System.Drawing">
+    <value>817, 360</value>
+  </data>
+  <data name="splMainVertical.SplitterDistance" type="System.Int32, mscorlib">
+    <value>414</value>
+  </data>
+  <data name="splMainVertical.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;splMainVertical.Name" xml:space="preserve">
+    <value>splMainVertical</value>
+  </data>
+  <data name="&gt;&gt;splMainVertical.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splMainVertical.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;splMainVertical.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

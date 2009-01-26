@@ -30,14 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrincipaleForm));
-            this.splMainHorizontal = new System.Windows.Forms.SplitContainer();
-            this.tvEsGace = new System.Windows.Forms.TreeView();
-            this.txtDetails = new System.Windows.Forms.TextBox();
-            this.splMainVertical = new System.Windows.Forms.SplitContainer();
-            this.tcOutilsAdditionnels = new EsGace.Composantes.TabControlOutils(this.components);
-            this.tpDetails = new EsGace.Contrôles.DetailsItem();
-            this.tpVisualisation = new System.Windows.Forms.TabPage();
-            this.tmiPrincipale = new EsGace.Contrôles.TreeMapItem();
             this.tspHaut = new System.Windows.Forms.ToolStripPanel();
             this.tlstrpMain = new System.Windows.Forms.ToolStrip();
             this.tlstrpMainAnalyseComplete = new System.Windows.Forms.ToolStripButton();
@@ -65,91 +57,28 @@
             this.cmnuNotifyBar1 = new System.Windows.Forms.ToolStripSeparator();
             this.cmnuNotifyQuitter = new System.Windows.Forms.ToolStripMenuItem();
             this.niEsGace = new System.Windows.Forms.NotifyIcon(this.components);
-            this.splMainHorizontal.Panel1.SuspendLayout();
-            this.splMainHorizontal.Panel2.SuspendLayout();
-            this.splMainHorizontal.SuspendLayout();
-            this.splMainVertical.Panel1.SuspendLayout();
-            this.splMainVertical.Panel2.SuspendLayout();
-            this.splMainVertical.SuspendLayout();
-            this.tcOutilsAdditionnels.SuspendLayout();
-            this.tpVisualisation.SuspendLayout();
+            this.splMainVertical = new System.Windows.Forms.SplitContainer();
+            this.splMainHorizontal = new System.Windows.Forms.SplitContainer();
+            this.tvEsGace = new System.Windows.Forms.TreeView();
+            this.txtDetails = new System.Windows.Forms.TextBox();
+            this.tcOutilsAdditionnels = new EsGace.Composantes.TabControlOutils(this.components);
+            this.tpDetails = new EsGace.Contrôles.DetailsItem();
+            this.tpVisualisation = new System.Windows.Forms.TabPage();
+            this.tmiPrincipale = new EsGace.Contrôles.TreeMapItem();
             this.tspHaut.SuspendLayout();
             this.tlstrpMain.SuspendLayout();
             this.mnuPrincipal.SuspendLayout();
             this.sbPrincipale.SuspendLayout();
             this.cmnuNotify.SuspendLayout();
+            this.splMainVertical.Panel1.SuspendLayout();
+            this.splMainVertical.Panel2.SuspendLayout();
+            this.splMainVertical.SuspendLayout();
+            this.splMainHorizontal.Panel1.SuspendLayout();
+            this.splMainHorizontal.Panel2.SuspendLayout();
+            this.splMainHorizontal.SuspendLayout();
+            this.tcOutilsAdditionnels.SuspendLayout();
+            this.tpVisualisation.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // splMainHorizontal
-            // 
-            resources.ApplyResources(this.splMainHorizontal, "splMainHorizontal");
-            this.splMainHorizontal.Name = "splMainHorizontal";
-            // 
-            // splMainHorizontal.Panel1
-            // 
-            this.splMainHorizontal.Panel1.Controls.Add(this.tvEsGace);
-            // 
-            // splMainHorizontal.Panel2
-            // 
-            this.splMainHorizontal.Panel2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.splMainHorizontal.Panel2.Controls.Add(this.txtDetails);
-            this.splMainHorizontal.Panel2Collapsed = true;
-            // 
-            // tvEsGace
-            // 
-            resources.ApplyResources(this.tvEsGace, "tvEsGace");
-            this.tvEsGace.HideSelection = false;
-            this.tvEsGace.Name = "tvEsGace";
-            this.tvEsGace.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.tvEsGace_BeforeExpand);
-            this.tvEsGace.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvEsGace_AfterSelect);
-            // 
-            // txtDetails
-            // 
-            resources.ApplyResources(this.txtDetails, "txtDetails");
-            this.txtDetails.Name = "txtDetails";
-            this.txtDetails.ReadOnly = true;
-            // 
-            // splMainVertical
-            // 
-            resources.ApplyResources(this.splMainVertical, "splMainVertical");
-            this.splMainVertical.Name = "splMainVertical";
-            // 
-            // splMainVertical.Panel1
-            // 
-            this.splMainVertical.Panel1.Controls.Add(this.splMainHorizontal);
-            // 
-            // splMainVertical.Panel2
-            // 
-            this.splMainVertical.Panel2.Controls.Add(this.tcOutilsAdditionnels);
-            // 
-            // tcOutilsAdditionnels
-            // 
-            this.tcOutilsAdditionnels.Controls.Add(this.tpDetails);
-            this.tcOutilsAdditionnels.Controls.Add(this.tpVisualisation);
-            resources.ApplyResources(this.tcOutilsAdditionnels, "tcOutilsAdditionnels");
-            this.tcOutilsAdditionnels.Item = null;
-            this.tcOutilsAdditionnels.Name = "tcOutilsAdditionnels";
-            this.tcOutilsAdditionnels.SelectedIndex = 0;
-            // 
-            // tpDetails
-            // 
-            resources.ApplyResources(this.tpDetails, "tpDetails");
-            this.tpDetails.Item = null;
-            this.tpDetails.Name = "tpDetails";
-            this.tpDetails.UseVisualStyleBackColor = true;
-            // 
-            // tpVisualisation
-            // 
-            this.tpVisualisation.Controls.Add(this.tmiPrincipale);
-            resources.ApplyResources(this.tpVisualisation, "tpVisualisation");
-            this.tpVisualisation.Name = "tpVisualisation";
-            this.tpVisualisation.UseVisualStyleBackColor = true;
-            // 
-            // tmiPrincipale
-            // 
-            resources.ApplyResources(this.tmiPrincipale, "tmiPrincipale");
-            this.tmiPrincipale.ItemCourant = null;
-            this.tmiPrincipale.Name = "tmiPrincipale";
             // 
             // tspHaut
             // 
@@ -345,6 +274,77 @@
             this.niEsGace.Visible = global::EsGace.Properties.Settings.Default.AfficherIconeNotification;
             this.niEsGace.DoubleClick += new System.EventHandler(this.niEsGace_DoubleClick);
             // 
+            // splMainVertical
+            // 
+            resources.ApplyResources(this.splMainVertical, "splMainVertical");
+            this.splMainVertical.Name = "splMainVertical";
+            // 
+            // splMainVertical.Panel1
+            // 
+            this.splMainVertical.Panel1.Controls.Add(this.splMainHorizontal);
+            // 
+            // splMainVertical.Panel2
+            // 
+            this.splMainVertical.Panel2.Controls.Add(this.tcOutilsAdditionnels);
+            // 
+            // splMainHorizontal
+            // 
+            resources.ApplyResources(this.splMainHorizontal, "splMainHorizontal");
+            this.splMainHorizontal.Name = "splMainHorizontal";
+            // 
+            // splMainHorizontal.Panel1
+            // 
+            this.splMainHorizontal.Panel1.Controls.Add(this.tvEsGace);
+            // 
+            // splMainHorizontal.Panel2
+            // 
+            this.splMainHorizontal.Panel2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.splMainHorizontal.Panel2.Controls.Add(this.txtDetails);
+            this.splMainHorizontal.Panel2Collapsed = true;
+            // 
+            // tvEsGace
+            // 
+            resources.ApplyResources(this.tvEsGace, "tvEsGace");
+            this.tvEsGace.HideSelection = false;
+            this.tvEsGace.Name = "tvEsGace";
+            this.tvEsGace.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.tvEsGace_BeforeExpand);
+            this.tvEsGace.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvEsGace_AfterSelect);
+            // 
+            // txtDetails
+            // 
+            resources.ApplyResources(this.txtDetails, "txtDetails");
+            this.txtDetails.Name = "txtDetails";
+            this.txtDetails.ReadOnly = true;
+            // 
+            // tcOutilsAdditionnels
+            // 
+            this.tcOutilsAdditionnels.Controls.Add(this.tpDetails);
+            this.tcOutilsAdditionnels.Controls.Add(this.tpVisualisation);
+            resources.ApplyResources(this.tcOutilsAdditionnels, "tcOutilsAdditionnels");
+            this.tcOutilsAdditionnels.Item = null;
+            this.tcOutilsAdditionnels.Name = "tcOutilsAdditionnels";
+            this.tcOutilsAdditionnels.SelectedIndex = 0;
+            // 
+            // tpDetails
+            // 
+            resources.ApplyResources(this.tpDetails, "tpDetails");
+            this.tpDetails.Item = null;
+            this.tpDetails.Name = "tpDetails";
+            this.tpDetails.UseVisualStyleBackColor = true;
+            // 
+            // tpVisualisation
+            // 
+            this.tpVisualisation.Controls.Add(this.tmiPrincipale);
+            resources.ApplyResources(this.tpVisualisation, "tpVisualisation");
+            this.tpVisualisation.Name = "tpVisualisation";
+            this.tpVisualisation.UseVisualStyleBackColor = true;
+            // 
+            // tmiPrincipale
+            // 
+            resources.ApplyResources(this.tmiPrincipale, "tmiPrincipale");
+            this.tmiPrincipale.ItemCourant = null;
+            this.tmiPrincipale.Name = "tmiPrincipale";
+            // 
             // PrincipaleForm
             // 
             resources.ApplyResources(this, "$this");
@@ -359,16 +359,6 @@
             this.Load += new System.EventHandler(this.PrincipaleForm_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PrincipaleForm_FormClosing);
             this.Resize += new System.EventHandler(this.PrincipaleForm_Resize);
-            this.splMainHorizontal.Panel1.ResumeLayout(false);
-            this.splMainHorizontal.Panel2.ResumeLayout(false);
-            this.splMainHorizontal.Panel2.PerformLayout();
-            this.splMainHorizontal.ResumeLayout(false);
-            this.splMainVertical.Panel1.ResumeLayout(false);
-            this.splMainVertical.Panel2.ResumeLayout(false);
-            this.splMainVertical.ResumeLayout(false);
-            this.tcOutilsAdditionnels.ResumeLayout(false);
-            this.tcOutilsAdditionnels.PerformLayout();
-            this.tpVisualisation.ResumeLayout(false);
             this.tspHaut.ResumeLayout(false);
             this.tspHaut.PerformLayout();
             this.tlstrpMain.ResumeLayout(false);
@@ -378,6 +368,16 @@
             this.sbPrincipale.ResumeLayout(false);
             this.sbPrincipale.PerformLayout();
             this.cmnuNotify.ResumeLayout(false);
+            this.splMainVertical.Panel1.ResumeLayout(false);
+            this.splMainVertical.Panel2.ResumeLayout(false);
+            this.splMainVertical.ResumeLayout(false);
+            this.splMainHorizontal.Panel1.ResumeLayout(false);
+            this.splMainHorizontal.Panel2.ResumeLayout(false);
+            this.splMainHorizontal.Panel2.PerformLayout();
+            this.splMainHorizontal.ResumeLayout(false);
+            this.tcOutilsAdditionnels.ResumeLayout(false);
+            this.tcOutilsAdditionnels.PerformLayout();
+            this.tpVisualisation.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

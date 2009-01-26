@@ -28,7 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.lblStatus = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoEllipsis = true;
+            this.lblStatus.BackColor = System.Drawing.Color.Transparent;
+            this.lblStatus.Location = new System.Drawing.Point(12, 168);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(276, 16);
+            this.lblStatus.TabIndex = 0;
+            this.lblStatus.Text = "Status";
             // 
             // Demarrage
             // 
@@ -37,6 +48,7 @@
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.BackgroundImage = global::EsGace.Properties.Resources.Splash;
             this.ClientSize = new System.Drawing.Size(300, 250);
+            this.Controls.Add(this.lblStatus);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Demarrage";
             this.ShowIcon = false;
@@ -49,5 +61,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Label lblStatus;
     }
 }

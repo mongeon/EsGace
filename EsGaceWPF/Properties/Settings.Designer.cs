@@ -34,5 +34,17 @@ namespace EsGaceWPF.Properties {
                 this["Decimal"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AfficherFichierAnalyse {
+            get {
+                return ((bool)(this["AfficherFichierAnalyse"]));
+            }
+            set {
+                this["AfficherFichierAnalyse"] = value;
+            }
+        }
     }
 }

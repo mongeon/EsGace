@@ -1,9 +1,10 @@
-﻿using System.Windows;
-using System;
-using EsGaceEngin;
-using System.Windows.Controls;
-using EsGace.Classes;
+﻿using System;
 using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Threading;
+using EsGace.Classes;
+using EsGaceEngin;
 
 namespace EsGaceWPF
 {
@@ -24,6 +25,8 @@ namespace EsGaceWPF
         /// connaitre le temps écoulé.
         /// </summary>
         private DateTime m_HeureDepartAnalyse;
+
+        private DispatcherTimer m_timerElapsed;
         #endregion
 
         public MainWindow()
@@ -31,15 +34,20 @@ namespace EsGaceWPF
             InitializeComponent();
             analyseResults.AddHandler(TreeViewItem.ExpandedEvent, new RoutedEventHandler(analyseResults_ItemExpanded));
 
+            m_timerElapsed = new DispatcherTimer();
+            m_timerElapsed.Interval = new TimeSpan(0,0,0,1);
+           
+            m_timerElapsed.Stop();
+            m_timerElapsed.Tick += new EventHandler(m_timerElapsed_Tick);
             // Ajout de l'onglet détails dans la liste
             //tcOutilsAdditionnels.Controls.Add(new TabPageDetails());
 
             //analyseResults.Items.SortDescriptions TreeViewNodeSorter = new NodeSorter();
             //ChargementImage();
             m_moteur = new Engin();
-            //m_moteur.AnalyseCompleter += new Engin.EnginEventHandler(m_moteur_AnalyseCompleter);
-            //m_moteur.AnalyseProgression += new Engin.EnginProgressionEventHandler(m_moteur_AnalyseProgression);
-            //m_moteur.EtatModifier += new Engin.EnginEtatModifierEventHandler(m_moteur_EtatModifier);
+            m_moteur.AnalyseCompleter += new Engin.EnginEventHandler(m_moteur_AnalyseCompleter);
+            m_moteur.AnalyseProgression += new Engin.EnginProgressionEventHandler(m_moteur_AnalyseProgression);
+            m_moteur.EtatModifier += new Engin.EnginEtatModifierEventHandler(m_moteur_EtatModifier);
             try
             {
                 foreach (EsGaceEngin.Item disque in m_moteur.DisqueRacines)
@@ -58,6 +66,15 @@ namespace EsGaceWPF
             // Affiche les bons contrôles disponibles
             //AjusterFenetreSelonEtat();
         }
+
+        void m_timerElapsed_Tick(object sender, EventArgs e)
+        {
+            TimeSpan ts = DateTime.Now - m_HeureDepartAnalyse;
+            elapsedTime.Content = ts.ToString().Substring(0, 8);//ts.Hours.ToString() + ":" + ts.Minutes.ToString() + ":" + ts.Seconds.ToString();
+
+        }
+
+       
         ///****************************************************************************************
         /// <summary>
         /// Ajoute un item dans l'arbre
@@ -118,6 +135,19 @@ namespace EsGaceWPF
 
         //}
 
+        ///****************************************************************************************
+        /// <summary>
+        /// Lance l'analyse complète
+        /// </summary>
+        ///****************************************************************************************
+        private void LancerAnalyseComplete()
+        {
+            m_HeureDepartAnalyse = new DateTime();
+            m_HeureDepartAnalyse = DateTime.Now;
+            footer.Visibility = System.Windows.Visibility.Visible;
+            m_timerElapsed.Start();
+            m_moteur.Analyse();
+        }
         private void analyseResults_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             if (e.NewValue is TreeViewItem)
@@ -166,6 +196,83 @@ namespace EsGaceWPF
                 }
             }
 
+        }
+        #region Moteur / Engin ====================================================================
+
+        ///****************************************************************************************
+        /// <summary>
+        /// Lorsque le moteur change d'état, on modifie l'interface pour l'interaction avec 
+        /// l'usager.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="etat"></param>
+        ///****************************************************************************************
+        void m_moteur_EtatModifier(object sender, Engin.Etat etat)
+        {
+            //AjusterFenetreSelonEtat();
+        }
+
+        ///****************************************************************************************
+        /// <summary>
+        /// Met à jour le statut de l'analyse
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        ///****************************************************************************************
+        void m_moteur_AnalyseProgression(object sender, string e)
+        {
+            if (Properties.Settings.Default.AfficherFichierAnalyse)
+            {
+                progressionText.Text = e;
+                
+            }
+            else
+            {
+                progressionText.Text = "";
+                
+            }
+
+            progression.IsIndeterminate = true;
+
+        }
+
+        ///****************************************************************************************
+        /// <summary>
+        /// Lorsque l'analyse se termine
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">L'item qui a été analyser</param>
+        ///****************************************************************************************
+        void m_moteur_AnalyseCompleter(object sender, Item e)
+        {
+            foreach (TreeViewItem tn in analyseResults.Items)
+            {
+                foreach (Item item in ((Item)tn.Tag).GetEnfants)
+                {
+                    AjouterItemArbre(tn, item);
+                }
+
+            }
+
+            //analyseResults.Sort();
+           // analyseResults.Enabled = true;
+
+            progressionText.Text = "";
+            progression.IsIndeterminate = false;
+            m_timerElapsed.Stop();
+            footer.Visibility = System.Windows.Visibility.Collapsed;
+
+        }
+        #endregion
+
+        private void complete_Click(object sender, RoutedEventArgs e)
+        {
+            LancerAnalyseComplete();
+        }
+
+        private void analyzeCancel_Click(object sender, RoutedEventArgs e)
+        {
+            m_moteur.AnnulerAnalyse();
         }
     }
 }

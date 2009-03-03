@@ -8,7 +8,7 @@
         <Border x:Name="headerBorder" BorderBrush="#FF535353" BorderThickness="0,0,0,1"
                 DockPanel.Dock="Top" Padding="10,0,10,0" >
             <DockPanel LastChildFill="false">
-                <!--<Image DockPanel.Dock="Left" Height="50" Name="image2"  Source="/EsGaceWPF;component/Images/LogoEsGace.png"  />-->
+                <Image DockPanel.Dock="Left" Height="50" Name="image2"  Source="/EsGaceWPF;component/Images/LogoEsGace.png"  />
 
                 <Image  DockPanel.Dock="Right" Name="image1" Source="/EsGaceWPF;component/Images/Logo.png" Height="50" />
             </DockPanel>
@@ -44,7 +44,7 @@
                             <!-- Results -->
                             <TreeView x:Name="analyseResults"
                                       DockPanel.Dock="Top" Visibility="Visible" Background="#DDFFFFFF" Opacity="1"
-                                      SelectedItemChanged="analyseResults_SelectedItemChanged">
+                                      SelectedItemChanged="analyseResults_SelectedItemChanged"  >
                                 <TreeView.Resources>
                                     <Style TargetType="{x:Type TreeViewItem}">
                                         <Setter Property="HeaderTemplate">
@@ -160,7 +160,7 @@
                                         </DockPanel>
                                        
                                         
-                                        <ProgressBar x:Name="progression" IsIndeterminate="True" Height="10" />
+                                        <ProgressBar x:Name="progression" IsIndeterminate="False" Height="10" />
                                         
                                     </StackPanel>
                                 </Border>
@@ -263,6 +263,86 @@
                             </StackPanel>
                         </Border>
                     </DockPanel>
+                    
+                </Border>
+                <Border x:Name="StatsPanelBody"
+                        BorderBrush="#FF535353"
+                        BorderThickness="1,1,1,1"
+                        DockPanel.Dock="Top" Visibility="Collapsed">
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,.5">
+                            <GradientStop Color="#FF545454" Offset="0"/>
+                            <GradientStop Color="#CC202020" Offset="1"/>
+
+                        </LinearGradientBrush>
+
+                    </Border.Background>
+                    <DockPanel LastChildFill="False" IsItemsHost="False">
+                        <Border x:Name="statsPanel" DockPanel.Dock="Top"
+                                 BorderThickness="1,0,1,1">
+                            <Border.Background>
+                                <LinearGradientBrush EndPoint="0.504,0.351" StartPoint="0.504,-0.319">
+                                    <GradientStop Color="#FF000000" Offset="0.416"/>
+                                    <GradientStop Color="DarkRed" Offset="0.54"/>
+
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <StackPanel HorizontalAlignment="Stretch" Margin="10">
+                               
+                                <TextBlock FontSize="16"
+                                           FontWeight="Bold"
+                                           Foreground="#FFFFFFFF"
+                                           Text="Statistics"/>
+                                <Border BorderBrush=" #FF6573A0"
+                                        BorderThickness="0,1,0,0"
+                                        Margin="0,10,0,0">
+                                    <StackPanel>
+                                        <DockPanel LastChildFill="True"  >
+                                            <Label DockPanel.Dock="Left"  Content="_Name:" Foreground="White"/>
+                                            <TextBlock  DockPanel.Dock="Right" 
+                                                        HorizontalAlignment="Right" 
+                                                        VerticalAlignment="Center" >
+                                                <Hyperlink Foreground="LightGray">
+                                                    Open...
+                                                </Hyperlink>
+                                            </TextBlock>
+
+                                        
+                                        </DockPanel>
+                                        
+                                        <TextBox x:Name="itemName2" IsReadOnly="True" Background="#11FFFFFF" BorderBrush="Transparent" Opacity="1" Foreground="WhiteSmoke"></TextBox>
+                                        <DockPanel LastChildFill="True"  >
+                                            <Label DockPanel.Dock="Left"  Content="_Folder:" Foreground="White"/>
+                                            <TextBlock  DockPanel.Dock="Right" 
+                                                        HorizontalAlignment="Right" 
+                                                        VerticalAlignment="Center" >
+                                                <Hyperlink Foreground="LightGray" >
+                                                    Open...
+                                                </Hyperlink>
+                                            </TextBlock>
+
+                                        
+                                        </DockPanel>
+                                        <TextBox x:Name="itemFolder2" IsReadOnly="True" Background="#11FFFFFF" BorderBrush="Transparent" Opacity="1" Foreground="WhiteSmoke"></TextBox>
+                                        <Label Content="_Size:" Foreground="White"/>
+                                        <TextBox x:Name="itemSize2" IsReadOnly="True" Background="#11FFFFFF" BorderBrush="Transparent" Opacity="1" Foreground="WhiteSmoke"></TextBox>
+
+                                    </StackPanel>
+                                </Border>
+                                <Border BorderBrush="#FF6573A0"
+                                        BorderThickness="0,1,0,0"
+                                        Margin="0,10,0,0">
+                                    
+                                                
+                                        
+                                    
+                                </Border>
+                                        
+                                           
+                            </StackPanel>
+                        </Border>
+                    </DockPanel>
+
                 </Border>
             </DockPanel>
         </Grid>

@@ -5,6 +5,9 @@ using System.Windows.Controls;
 using System.Windows.Threading;
 using EsGace.Classes;
 using EsGaceEngin;
+using System.Collections;
+using System.ComponentModel;
+using System.Windows.Data;
 
 namespace EsGaceWPF
 {
@@ -103,13 +106,14 @@ namespace EsGaceWPF
 
             if (NoeudParent == null)
             {
-
+               
                 analyseResults.Items.Add(tn);
             }
             else
             {
                 NoeudParent.Items.Add(tn);
             }
+
 
             return true;
 
@@ -135,6 +139,62 @@ namespace EsGaceWPF
 
         //}
 
+        private void CustomTreeViewSort(ItemCollection itemCollection)
+        {
+            for (int i = 0; i < 1; i++)
+            {
+                
+            }
+        }
+      /*  public void q_sort(TreeViewItem left, TreeViewItem right, ItemCollection itemCollection)
+        {
+            TreeViewItem pivot, l_hold, r_hold;
+
+            l_hold = left;
+            r_hold = right;
+            pivot = (TreeViewItem)(itemCollection[left]);
+
+            while (left < right)
+            {
+                while ((itemCollection[right] >= pivot) && (left < right))
+                {
+                    right--;
+                }
+
+                if (left != right)
+                {
+                    itemCollection[left] = itemCollection[right];
+                    left++;
+                }
+
+                while ((itemCollection[left] <= pivot) && (left < right))
+                {
+                    left++;
+                }
+
+                if (left != right)
+                {
+                    itemCollection[right] = itemCollection[left];
+                    right--;
+                }
+            }
+
+            itemCollection[left] = pivot;
+            pivot = left;
+            left = l_hold;
+            right = r_hold;
+
+            if (left < pivot)
+            {
+                q_sort(left, pivot - 1);
+            }
+
+            if (right > pivot)
+            {
+                q_sort(pivot + 1, right);
+            }
+        }*/
+
         ///****************************************************************************************
         /// <summary>
         /// Lance l'analyse complète
@@ -145,6 +205,7 @@ namespace EsGaceWPF
             m_HeureDepartAnalyse = new DateTime();
             m_HeureDepartAnalyse = DateTime.Now;
             footer.Visibility = System.Windows.Visibility.Visible;
+            progression.IsIndeterminate = true;
             m_timerElapsed.Start();
             m_moteur.Analyse();
         }
@@ -194,6 +255,7 @@ namespace EsGaceWPF
                         }
                     }
                 }
+                tn.Items.Refresh();
             }
 
         }
@@ -255,12 +317,14 @@ namespace EsGaceWPF
             }
 
             //analyseResults.Sort();
-           // analyseResults.Enabled = true;
+            CustomTreeViewSort(analyseResults.Items);
+            // analyseResults.Enabled = true;
 
             progressionText.Text = "";
             progression.IsIndeterminate = false;
             m_timerElapsed.Stop();
             footer.Visibility = System.Windows.Visibility.Collapsed;
+
 
         }
         #endregion
@@ -275,4 +339,5 @@ namespace EsGaceWPF
             m_moteur.AnnulerAnalyse();
         }
     }
+    
 }

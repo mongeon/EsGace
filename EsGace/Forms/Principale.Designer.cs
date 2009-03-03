@@ -271,7 +271,6 @@
             // 
             this.niEsGace.ContextMenuStrip = this.cmnuNotify;
             resources.ApplyResources(this.niEsGace, "niEsGace");
-            this.niEsGace.Visible = global::EsGace.Properties.Settings.Default.AfficherIconeNotification;
             this.niEsGace.DoubleClick += new System.EventHandler(this.niEsGace_DoubleClick);
             // 
             // splMainVertical

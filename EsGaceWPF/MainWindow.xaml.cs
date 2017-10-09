@@ -19,50 +19,50 @@ namespace EsGaceWPF
         #region Variables =========================================================================
 
         /// <summary>
-        /// Engin d'analyse des répertoires.
-        /// </summary>
-        private Engin m_moteur;
-
-        /// <summary>
-        /// Temps de départ pour l'analyse, nécessaire lorsque l'analyse roule et on désire en 
+        /// Temps de départ pour l'analyse, nécessaire lorsque l'analyse roule et on désire en
         /// connaitre le temps écoulé.
         /// </summary>
         private DateTime m_HeureDepartAnalyse;
 
+        /// <summary>
+        /// Engin d'analyse des répertoires.
+        /// </summary>
+        private Engin m_moteur;
+
         private DispatcherTimer m_timerElapsed;
-        #endregion
+
+        #endregion Variables =========================================================================
 
         public MainWindow()
         {
             InitializeComponent();
-            analyseResults.AddHandler(TreeViewItem.ExpandedEvent, new RoutedEventHandler(analyseResults_ItemExpanded));
+            analyseResults.AddHandler(TreeViewItem.ExpandedEvent, new RoutedEventHandler(AnalyseResults_ItemExpanded));
 
-            m_timerElapsed = new DispatcherTimer();
-            m_timerElapsed.Interval = new TimeSpan(0,0,0,1);
-           
+            m_timerElapsed = new DispatcherTimer
+            {
+                Interval = new TimeSpan(0, 0, 0, 1)
+            };
+
             m_timerElapsed.Stop();
-            m_timerElapsed.Tick += new EventHandler(m_timerElapsed_Tick);
+            m_timerElapsed.Tick += new EventHandler(TimerElapsed_Tick);
             // Ajout de l'onglet détails dans la liste
             //tcOutilsAdditionnels.Controls.Add(new TabPageDetails());
 
             //analyseResults.Items.SortDescriptions TreeViewNodeSorter = new NodeSorter();
             //ChargementImage();
             m_moteur = new Engin();
-            m_moteur.AnalyseCompleter += new Engin.EnginEventHandler(m_moteur_AnalyseCompleter);
-            m_moteur.AnalyseProgression += new Engin.EnginProgressionEventHandler(m_moteur_AnalyseProgression);
-            m_moteur.EtatModifier += new Engin.EnginEtatModifierEventHandler(m_moteur_EtatModifier);
+            m_moteur.AnalyseCompleter += new Engin.EnginEventHandler(Moteur_AnalyseCompleter);
+            m_moteur.AnalyseProgression += new Engin.EnginProgressionEventHandler(Moteur_AnalyseProgression);
+            m_moteur.EtatModifier += new Engin.EnginEtatModifierEventHandler(Moteur_EtatModifier);
             try
             {
                 foreach (EsGaceEngin.Item disque in m_moteur.DisqueRacines)
                 {
-
                     AjouterItemArbre(null, disque);
-
                 }
             }
             catch (Exception)
             {
-
                 throw;
             }
 
@@ -70,14 +70,6 @@ namespace EsGaceWPF
             //AjusterFenetreSelonEtat();
         }
 
-        void m_timerElapsed_Tick(object sender, EventArgs e)
-        {
-            TimeSpan ts = DateTime.Now - m_HeureDepartAnalyse;
-            elapsedTime.Content = ts.ToString().Substring(0, 8);//ts.Hours.ToString() + ":" + ts.Minutes.ToString() + ":" + ts.Seconds.ToString();
-
-        }
-
-       
         ///****************************************************************************************
         /// <summary>
         /// Ajoute un item dans l'arbre
@@ -88,11 +80,12 @@ namespace EsGaceWPF
         ///****************************************************************************************
         private bool AjouterItemArbre(TreeViewItem NoeudParent, EsGaceEngin.Item item)
         {
+            TreeViewItem tn = new TreeViewItem
+            {
+                Header = item.Nom,
 
-            TreeViewItem tn = new TreeViewItem();
-            tn.Header = item.Nom;
-
-            tn.Tag = item;
+                Tag = item
+            };
             if (item.Taille >= 0)
             {
                 tn.Header = item.Nom + "  ["
@@ -106,7 +99,6 @@ namespace EsGaceWPF
 
             if (NoeudParent == null)
             {
-               
                 analyseResults.Items.Add(tn);
             }
             else
@@ -114,86 +106,71 @@ namespace EsGaceWPF
                 NoeudParent.Items.Add(tn);
             }
 
-
             return true;
-
         }
-        //}
-        //private void tvEsGace_AfterSelect(object sender, TreeViewEventArgs e)
-        //{
-        //    if (e.Node != null)
-        //    {
-        //        if (e.Node.Tag is Item)
-        //        {
-        //            Item item = (Item)e.Node.Tag;
-        //            tcOutilsAdditionnels.Item = item;
-        //            //diPrincipale.ItemCourant = item;
-        //            tmiPrincipale.ItemCourant = item;
 
-        //        }
-        //        else
-        //        {
-        //            txtDetails.Text = "";
-        //        }
-        //    }
+        private void AnalyseResults_ItemExpanded(object sender, RoutedEventArgs e)
+        {
+            if (e.Source is TreeViewItem tn)
+            {
+                if (tn.Items != null)
+                {
+                    tn.Items.Clear();
 
-        //}
+                    //foreach (TreeNode tn in e.Node.Nodes)
+                    //{
+                    //    foreach (Item item in ((Item)tn.Tag).GetEnfants)
+                    //    {
+                    //        AjouterItemArbre(tn, item);
+                    //    }
+                    //}
+                    if (tn.Tag != null && tn.Tag is EsGaceEngin.Item)
+                    {
+                        List<Item> itemsEnfants = ((EsGaceEngin.Item)tn.Tag).GetEnfants;
+
+                        foreach (Item item in itemsEnfants)
+                        {
+                            AjouterItemArbre(tn, item);
+                        }
+                    }
+                }
+                tn.Items.Refresh();
+            }
+        }
+
+        private void AnalyseResults_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            if (e.NewValue is TreeViewItem)
+            {
+                Item item = (Item)((TreeViewItem)e.NewValue).Tag;
+                itemName.Text = item.Nom;
+                itemFolder.Text = item.Chemin;
+                itemSize.Text = FonctionsGenerales.TransformerTailleEnTexte(item.Taille);
+            }
+            else
+            {
+                itemName.Text = "";
+                itemFolder.Text = "";
+                itemSize.Text = "";
+            }
+        }
+
+        private void AnalyzeCancel_Click(object sender, RoutedEventArgs e)
+        {
+            m_moteur.AnnulerAnalyse();
+        }
+
+        private void Complete_Click(object sender, RoutedEventArgs e)
+        {
+            LancerAnalyseComplete();
+        }
 
         private void CustomTreeViewSort(ItemCollection itemCollection)
         {
             for (int i = 0; i < 1; i++)
             {
-                
             }
         }
-      /*  public void q_sort(TreeViewItem left, TreeViewItem right, ItemCollection itemCollection)
-        {
-            TreeViewItem pivot, l_hold, r_hold;
-
-            l_hold = left;
-            r_hold = right;
-            pivot = (TreeViewItem)(itemCollection[left]);
-
-            while (left < right)
-            {
-                while ((itemCollection[right] >= pivot) && (left < right))
-                {
-                    right--;
-                }
-
-                if (left != right)
-                {
-                    itemCollection[left] = itemCollection[right];
-                    left++;
-                }
-
-                while ((itemCollection[left] <= pivot) && (left < right))
-                {
-                    left++;
-                }
-
-                if (left != right)
-                {
-                    itemCollection[right] = itemCollection[left];
-                    right--;
-                }
-            }
-
-            itemCollection[left] = pivot;
-            pivot = left;
-            left = l_hold;
-            right = r_hold;
-
-            if (left < pivot)
-            {
-                q_sort(left, pivot - 1);
-            }
-
-            if (right > pivot)
-            {
-                q_sort(pivot + 1, right);
-            }
-        }*/
 
         ///****************************************************************************************
         /// <summary>
@@ -209,94 +186,78 @@ namespace EsGaceWPF
             m_timerElapsed.Start();
             m_moteur.Analyse();
         }
-        private void analyseResults_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+
+        private void TimerElapsed_Tick(object sender, EventArgs e)
         {
-            if (e.NewValue is TreeViewItem)
-            {
-                Item item = (Item)((TreeViewItem)e.NewValue ).Tag;
-                itemName.Text = item.Nom;
-                itemFolder.Text = item.Chemin;
-                itemSize.Text = FonctionsGenerales.TransformerTailleEnTexte(item.Taille);
-            }
-            else
-            {
-                itemName.Text = "";
-                itemFolder.Text = "";
-                itemSize.Text = "";
-            }
-
-
+            TimeSpan ts = DateTime.Now - m_HeureDepartAnalyse;
+            elapsedTime.Content = ts.ToString().Substring(0, 8);//ts.Hours.ToString() + ":" + ts.Minutes.ToString() + ":" + ts.Seconds.ToString();
         }
-        
-        private void analyseResults_ItemExpanded(object sender, RoutedEventArgs e)
-        {
-            if (e.Source is TreeViewItem)
-            {
-                TreeViewItem tn = (TreeViewItem)e.Source;
-                if (tn.Items != null)
-                {
-                    tn.Items.Clear();
 
-                    //foreach (TreeNode tn in e.Node.Nodes)
-                    //{
-                    //    foreach (Item item in ((Item)tn.Tag).GetEnfants)
-                    //    {
-                    //        AjouterItemArbre(tn, item);
-                    //    }
-                    //}
-                    if (tn.Tag != null && tn.Tag is EsGaceEngin.Item)
-                    {
+        //}
+        //private void tvEsGace_AfterSelect(object sender, TreeViewEventArgs e)
+        //{
+        //    if (e.Node != null)
+        //    {
+        //        if (e.Node.Tag is Item)
+        //        {
+        //            Item item = (Item)e.Node.Tag;
+        //            tcOutilsAdditionnels.Item = item;
+        //            //diPrincipale.ItemCourant = item;
+        //            tmiPrincipale.ItemCourant = item;
 
-                        List<Item> itemsEnfants = ((EsGaceEngin.Item)tn.Tag).GetEnfants;
+        // } else { txtDetails.Text = ""; } }
 
-                        foreach (Item item in itemsEnfants)
-                        {
-                            AjouterItemArbre(tn, item);
-                        }
-                    }
-                }
-                tn.Items.Refresh();
-            }
+        //}
+        /*  public void q_sort(TreeViewItem left, TreeViewItem right, ItemCollection itemCollection)
+          {
+              TreeViewItem pivot, l_hold, r_hold;
 
-        }
+              l_hold = left;
+              r_hold = right;
+              pivot = (TreeViewItem)(itemCollection[left]);
+
+              while (left < right)
+              {
+                  while ((itemCollection[right] >= pivot) && (left < right))
+                  {
+                      right--;
+                  }
+
+                  if (left != right)
+                  {
+                      itemCollection[left] = itemCollection[right];
+                      left++;
+                  }
+
+                  while ((itemCollection[left] <= pivot) && (left < right))
+                  {
+                      left++;
+                  }
+
+                  if (left != right)
+                  {
+                      itemCollection[right] = itemCollection[left];
+                      right--;
+                  }
+              }
+
+              itemCollection[left] = pivot;
+              pivot = left;
+              left = l_hold;
+              right = r_hold;
+
+              if (left < pivot)
+              {
+                  q_sort(left, pivot - 1);
+              }
+
+              if (right > pivot)
+              {
+                  q_sort(pivot + 1, right);
+              }
+          }*/
+
         #region Moteur / Engin ====================================================================
-
-        ///****************************************************************************************
-        /// <summary>
-        /// Lorsque le moteur change d'état, on modifie l'interface pour l'interaction avec 
-        /// l'usager.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="etat"></param>
-        ///****************************************************************************************
-        void m_moteur_EtatModifier(object sender, Engin.Etat etat)
-        {
-            //AjusterFenetreSelonEtat();
-        }
-
-        ///****************************************************************************************
-        /// <summary>
-        /// Met à jour le statut de l'analyse
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        ///****************************************************************************************
-        void m_moteur_AnalyseProgression(object sender, string e)
-        {
-            if (Properties.Settings.Default.AfficherFichierAnalyse)
-            {
-                progressionText.Text = e;
-                
-            }
-            else
-            {
-                progressionText.Text = "";
-                
-            }
-
-            progression.IsIndeterminate = true;
-
-        }
 
         ///****************************************************************************************
         /// <summary>
@@ -305,7 +266,7 @@ namespace EsGaceWPF
         /// <param name="sender"></param>
         /// <param name="e">L'item qui a été analyser</param>
         ///****************************************************************************************
-        void m_moteur_AnalyseCompleter(object sender, Item e)
+        private void Moteur_AnalyseCompleter(object sender, Item e)
         {
             foreach (TreeViewItem tn in analyseResults.Items)
             {
@@ -313,7 +274,6 @@ namespace EsGaceWPF
                 {
                     AjouterItemArbre(tn, item);
                 }
-
             }
 
             //analyseResults.Sort();
@@ -324,20 +284,42 @@ namespace EsGaceWPF
             progression.IsIndeterminate = false;
             m_timerElapsed.Stop();
             footer.Visibility = System.Windows.Visibility.Collapsed;
-
-
         }
-        #endregion
 
-        private void complete_Click(object sender, RoutedEventArgs e)
+        ///****************************************************************************************
+        /// <summary>
+        /// Met à jour le statut de l'analyse
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        ///****************************************************************************************
+        private void Moteur_AnalyseProgression(object sender, string e)
         {
-            LancerAnalyseComplete();
+            if (Properties.Settings.Default.AfficherFichierAnalyse)
+            {
+                progressionText.Text = e;
+            }
+            else
+            {
+                progressionText.Text = "";
+            }
+
+            progression.IsIndeterminate = true;
         }
 
-        private void analyzeCancel_Click(object sender, RoutedEventArgs e)
+        ///****************************************************************************************
+        /// <summary>
+        /// Lorsque le moteur change d'état, on modifie l'interface pour l'interaction avec
+        /// l'usager.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="etat"></param>
+        ///****************************************************************************************
+        private void Moteur_EtatModifier(object sender, Engin.Etat etat)
         {
-            m_moteur.AnnulerAnalyse();
+            //AjusterFenetreSelonEtat();
         }
+
+        #endregion Moteur / Engin ====================================================================
     }
-    
 }

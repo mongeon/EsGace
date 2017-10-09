@@ -1,7 +1,7 @@
-﻿
-using System.Xml;
+﻿using System.Xml;
 using System.IO;
 using System;
+
 namespace EsGaceEngin
 {
     ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -14,9 +14,10 @@ namespace EsGaceEngin
     /// - Espaces sur les disques logiques
     /// </summary>
     ///////////////////////////////////////////////////////////////////////////////////////////////
-    class Statistiques
+    internal class Statistiques
     {
         private XmlDocument m_XMLDoc;
+
         ///****************************************************************************************
         /// <summary>
         /// Création de la classe de statistiques
@@ -27,10 +28,12 @@ namespace EsGaceEngin
             // Si le fichier existe
             if (File.Exists(CheminFichierXML))
             {
-                XmlReaderSettings settings = new XmlReaderSettings();
-                settings.ConformanceLevel = ConformanceLevel.Fragment;
-                settings.IgnoreWhitespace = true;
-                settings.IgnoreComments = true;
+                XmlReaderSettings settings = new XmlReaderSettings
+                {
+                    ConformanceLevel = ConformanceLevel.Fragment,
+                    IgnoreWhitespace = true,
+                    IgnoreComments = true
+                };
                 XmlTextReader reader = new XmlTextReader(CheminFichierXML);
                 m_XMLDoc = new XmlDocument();
                 m_XMLDoc.Load(reader);
@@ -43,14 +46,9 @@ namespace EsGaceEngin
                     }
                     //Analyse.FirstChild
                 }
-
-               
-                
-
             }
             else
             {
-
             }
         }
     }

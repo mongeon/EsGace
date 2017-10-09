@@ -4,8 +4,24 @@ using System.Resources;
 
 namespace EsGace.Classes
 {
-    class FonctionsGenerales
+    internal class FonctionsGenerales
     {
+        public static string Traduction(string Texte)
+        {
+            try
+            {
+                ResourceManager LocRM = new ResourceManager("EsGaceWPF.ResourcesEsGace", Assembly.GetExecutingAssembly())
+                {
+                    IgnoreCase = true
+                };
+                return LocRM.GetString(Texte);
+            }
+            catch (Exception)
+            {
+                return Texte;
+            }
+        }
+
         public static string TransformerTailleEnTexte(long taille)
         {
             Double TailleD = Convert.ToDouble(taille);
@@ -25,23 +41,7 @@ namespace EsGace.Classes
             else
             {
                 return Math.Round((TailleD / (1024 * 1024 * 1024)), dec).ToString() + " " + Traduction("GigaOctet");
-
             }
-        }
-        public static string Traduction(string Texte)
-        {
-            try
-            {
-                ResourceManager LocRM = new ResourceManager("EsGaceWPF.ResourcesEsGace", Assembly.GetExecutingAssembly());
-                LocRM.IgnoreCase = true;
-                return LocRM.GetString(Texte);
-            }
-            catch (Exception)
-            {
-
-                return Texte;
-            }
-
         }
     }
 }

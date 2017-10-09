@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsGace", "EsGace\EsGace.csproj", "{439CDFAE-276F-46D2-ADBF-67C0CF34F1E4}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsGaceEngin", "EsGaceEngin\EsGaceEngin.csproj", "{6CFF1D32-2748-466F-8B41-A3878F1C3FB9}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "EsgaceSetup", "EsgaceSetup\EsgaceSetup.vdproj", "{31A6DD09-5866-4351-8933-FD41ECB76666}"
@@ -17,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{439CDFAE-276F-46D2-ADBF-67C0CF34F1E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{439CDFAE-276F-46D2-ADBF-67C0CF34F1E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{439CDFAE-276F-46D2-ADBF-67C0CF34F1E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{439CDFAE-276F-46D2-ADBF-67C0CF34F1E4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6CFF1D32-2748-466F-8B41-A3878F1C3FB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6CFF1D32-2748-466F-8B41-A3878F1C3FB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CFF1D32-2748-466F-8B41-A3878F1C3FB9}.Release|Any CPU.ActiveCfg = Release|Any CPU

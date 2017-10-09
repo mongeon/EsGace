@@ -44,7 +44,7 @@
                             <!-- Results -->
                             <TreeView x:Name="analyseResults"
                                       DockPanel.Dock="Top" Visibility="Visible" Background="#DDFFFFFF" Opacity="1"
-                                      SelectedItemChanged="analyseResults_SelectedItemChanged"  >
+                                      SelectedItemChanged="AnalyseResults_SelectedItemChanged"  >
                                 <TreeView.Resources>
                                     <Style TargetType="{x:Type TreeViewItem}">
                                         <Setter Property="HeaderTemplate">
@@ -103,7 +103,7 @@
                             <Button Grid.Column="2"  x:Name="analyzeCancel"
                                     Content="Cancel"
                                     HorizontalAlignment="right"
-                                    Margin="0,-1.963,0,0"  Width="39.893" VerticalAlignment="Center" Click="analyzeCancel_Click" />
+                                    Margin="0,-1.963,0,0"  Width="39.893" VerticalAlignment="Center" Click="AnalyzeCancel_Click" />
                           
                         </Grid>
                     </Border>
@@ -172,7 +172,7 @@
                                         <Button x:Name="complete"
                                                         Content="_Complete"
                                                         Margin="0,0,5,0"
-                                                        Width="60" IsDefault="True" Click="complete_Click" />
+                                                        Width="60" IsDefault="True" Click="Complete_Click" />
                                         <Button          x:Name="partial"
                                                          Content="_Partial"
                                                         Width="60" IsEnabled="False" />

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace EsGaceEngin
 {
@@ -18,67 +16,54 @@ namespace EsGaceEngin
         ///****************************************************************************************
         public enum eTypeItem
         {
-            Indefini =-1,
+            Indefini = -1,
             Lecteur,
             Repertoire,
             Fichier
         }
+
         #region Variables =========================================================================
 
-        private string m_Nom = "";
         internal List<Item> m_Enfants;
         internal long m_Taille = -1;
-        private bool m_DejaAnalyser = false;
-
         internal eTypeItem m_tItem = eTypeItem.Indefini;
-        #endregion
+        private bool m_DejaAnalyser = false;
+        private string m_Nom = "";
+
+        #endregion Variables =========================================================================
 
         #region Propriétés ========================================================================
-        ///****************************************************************************************
-        /// <summary>
-        /// Nom de l'item
-        /// </summary>
-        ///****************************************************************************************
-        public virtual string Nom
-        {
-            get { return m_Nom; }
-            set { m_Nom = value; }
-        }
+
         ///****************************************************************************************
         /// <summary>
         /// Chemin ou se trouve cet item (Le chemin parent)
         /// </summary>
         ///****************************************************************************************
         public virtual string Chemin { get; set; }
+
         ///****************************************************************************************
         /// <summary>
         /// Chemin complet ou se trouve cet item, incluant le nom de celui-ci
         /// </summary>
         ///****************************************************************************************
         public virtual string CheminComplet { get; set; }
+
         ///****************************************************************************************
         /// <summary>
-        /// Taille de l'item
+        /// Retourne la liste des enfants
         /// </summary>
         ///****************************************************************************************
-        public virtual long Taille
+        public virtual bool DejaAnalyser
         {
             get
             {
-                
-                return m_Taille;
+                return m_DejaAnalyser;
             }
             set
             {
-                m_Taille = value;
+                m_DejaAnalyser = value;
             }
         }
-        ///****************************************************************************************
-        /// <summary>
-        /// Disque racine de l'item
-        /// </summary>
-        ///****************************************************************************************
-        public virtual string Racine { get; set; }
 
         ///****************************************************************************************
         /// <summary>
@@ -86,12 +71,13 @@ namespace EsGaceEngin
         /// </summary>
         ///****************************************************************************************
         public virtual List<Item> GetEnfants
-        { 
+        {
             get
             {
                 return m_Enfants;
-            } 
+            }
         }
+
         ///****************************************************************************************
         /// <summary>
         /// Retourne la liste des enfants
@@ -114,18 +100,36 @@ namespace EsGaceEngin
 
         ///****************************************************************************************
         /// <summary>
-        /// Retourne la liste des enfants
+        /// Nom de l'item
         /// </summary>
         ///****************************************************************************************
-        public virtual bool DejaAnalyser
+        public virtual string Nom
+        {
+            get { return m_Nom; }
+            set { m_Nom = value; }
+        }
+
+        ///****************************************************************************************
+        /// <summary>
+        /// Disque racine de l'item
+        /// </summary>
+        ///****************************************************************************************
+        public virtual string Racine { get; set; }
+
+        ///****************************************************************************************
+        /// <summary>
+        /// Taille de l'item
+        /// </summary>
+        ///****************************************************************************************
+        public virtual long Taille
         {
             get
             {
-                return m_DejaAnalyser;
+                return m_Taille;
             }
             set
             {
-                m_DejaAnalyser = value;
+                m_Taille = value;
             }
         }
 
@@ -143,8 +147,7 @@ namespace EsGaceEngin
 
             private set { m_tItem = value; }
         }
-        #endregion
-   
-    
+
+        #endregion Propriétés ========================================================================
     }
 }

@@ -1,21 +1,12 @@
-﻿
-using System;
-using System.IO;
+﻿using System;
 using System.Collections.Generic;
+using System.IO;
+
 namespace EsGaceEngin
 {
     public class Repertoire : Item, iItem
     {
-        DirectoryInfo m_InfosRepertoire;
-        internal Repertoire()
-        {
-
-        }
-        //public Repertoire(string Chemin)
-        //{
-        //    m_InfosRepertoire = new DirectoryInfo(Chemin);
-        //    base.Nom = m_InfosRepertoire.Name;
-        //    base.m_tItem = eTypeItem.Repertoire;
+        private DirectoryInfo m_InfosRepertoire;
 
         //}
         public Repertoire(string Chemin, Item aParent)
@@ -24,19 +15,12 @@ namespace EsGaceEngin
             base.Nom = m_InfosRepertoire.Name;
             base.m_tItem = eTypeItem.Repertoire;
             this.Parent = aParent;
-
         }
-        /// <summary>
-        /// Retourne si le répertoire existe.
-        /// </summary>
-        public bool Existe 
-        { 
-            get 
-            {
 
-                return m_InfosRepertoire.Exists;
-            } 
+        internal Repertoire()
+        {
         }
+
         public override string Chemin
         {
             get
@@ -48,6 +32,7 @@ namespace EsGaceEngin
                 base.Chemin = value;
             }
         }
+
         public override string CheminComplet
         {
             get
@@ -59,8 +44,8 @@ namespace EsGaceEngin
                 base.Chemin = value;
             }
         }
+
         /// <summary>
-        /// 
         /// </summary>
         public DateTime DateCreation
         {
@@ -69,8 +54,8 @@ namespace EsGaceEngin
                 return DateTime.Now;
             }
         }
+
         /// <summary>
-        /// 
         /// </summary>
         public DateTime DateDernierAcces
         {
@@ -79,8 +64,8 @@ namespace EsGaceEngin
                 return DateTime.Now;
             }
         }
+
         /// <summary>
-        /// 
         /// </summary>
         public DateTime DateDerniereModification
         {
@@ -89,6 +74,18 @@ namespace EsGaceEngin
                 return DateTime.Now;
             }
         }
+
+        /// <summary>
+        /// Retourne si le répertoire existe.
+        /// </summary>
+        public bool Existe
+        {
+            get
+            {
+                return m_InfosRepertoire.Exists;
+            }
+        }
+
         public override List<Item> GetEnfants
         {
             get
@@ -103,12 +100,11 @@ namespace EsGaceEngin
                     {
                         foreach (DirectoryInfo dir in m_InfosRepertoire.GetDirectories())
                         {
-                            this.m_Enfants.Add(new Repertoire(dir.FullName,this));
-                            
+                            this.m_Enfants.Add(new Repertoire(dir.FullName, this));
                         }
                         foreach (FileInfo file in m_InfosRepertoire.GetFiles())
                         {
-                            this.m_Enfants.Add(new Fichier(file.FullName,this));
+                            this.m_Enfants.Add(new Fichier(file.FullName, this));
                         }
                     }
                     catch (Exception)

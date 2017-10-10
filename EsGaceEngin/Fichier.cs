@@ -12,7 +12,6 @@ namespace EsGaceEngin
         //    base.Nom = m_InfosFichier.Name;
         //    base.m_tItem = eTypeItem.Fichier;
 
-
         //}
         public Fichier(string Chemin, Item aParent)
         {
@@ -20,16 +19,8 @@ namespace EsGaceEngin
             base.Nom = m_InfosFichier.Name;
             base.m_tItem = eTypeItem.Fichier;
             this.Parent = aParent;
-
-
         }
-        public override List<Item> GetEnfants
-        {
-            get
-            {
-                return new List<Item>();
-            }
-        }
+
         public override string Chemin
         {
             get
@@ -41,29 +32,46 @@ namespace EsGaceEngin
                 base.Chemin = value;
             }
         }
+
         public override string CheminComplet
         {
             get
             {
-                 return  m_InfosFichier.FullName;
+                return m_InfosFichier.FullName;
             }
             set
             {
                 base.CheminComplet = value;
             }
         }
+
+        public override List<Item> GetEnfants
+        {
+            get
+            {
+                return new List<Item>();
+            }
+        }
+
+        public override int NbEnfants
+        {
+            get
+            {
+                return 0;
+            }
+        }
+
         public override long Taille
         {
             get
             {
                 try
                 {
-
                     this.Taille = m_InfosFichier.Length;
                 }
                 catch (System.Exception)
                 {
-                    this.Taille= 0;
+                    this.Taille = 0;
                 }
                 finally
                 {
@@ -75,13 +83,6 @@ namespace EsGaceEngin
             {
                 DejaAnalyser = true;
                 base.Taille = value;
-            }
-        }
-        public override int NbEnfants
-        {
-            get
-            {
-                return 0;
             }
         }
     }

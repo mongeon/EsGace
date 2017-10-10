@@ -1,22 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Collections;
+﻿using System.Collections.Generic;
 
 namespace EsGaceEngin
 {
-    public class Noeud:Dictionary<string,Noeud>
+    public class Noeud : Dictionary<string, Noeud>
     {
-        Noeud m_Parent;
-        public void Add(Item aItem)
-        {
-            base.Add(aItem.Chemin + aItem.Nom, aItem);
+        private Noeud m_Parent;
 
-            aItem.Parent = this;
-        }
         ///****************************************************************************************
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ///****************************************************************************************
         public Noeud Parent
@@ -30,6 +22,12 @@ namespace EsGaceEngin
                 m_Parent = value;
             }
         }
-        
+
+        public void Add(Item aItem)
+        {
+            base.Add(aItem.Chemin + aItem.Nom, aItem);
+
+            aItem.Parent = this;
+        }
     }
 }

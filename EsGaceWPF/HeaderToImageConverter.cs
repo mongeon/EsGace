@@ -46,6 +46,4 @@ namespace EsGaceWPF
             throw new NotSupportedException("Cannot convert back");
         }
     }
-
-    #endregion HeaderToImageConverter
 }

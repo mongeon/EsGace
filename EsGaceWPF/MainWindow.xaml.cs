@@ -1,15 +1,11 @@
 ﻿using EsGace.Classes;
 using EsGaceEngin;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
-using EsGace.Classes;
-using EsGaceEngin;
-using System.Collections;
-using System.ComponentModel;
-using System.Windows.Data;
 
 namespace EsGaceWPF
 {

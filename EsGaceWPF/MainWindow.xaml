@@ -47,7 +47,7 @@
                                       DockPanel.Dock="Top" Visibility="Visible" Opacity="1"
                                       SelectedItemChanged="AnalyseResults_SelectedItemChanged">
                                 <TreeView.Resources>
-                                    <Style TargetType="{x:Type TreeViewItem}">
+                                    <Style TargetType="{x:Type TreeViewItem}" BasedOn="{StaticResource MetroTreeViewItem}">
                                         <Setter Property="HeaderTemplate">
                                             <Setter.Value>
                                                 <DataTemplate>

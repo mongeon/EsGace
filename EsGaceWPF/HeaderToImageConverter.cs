@@ -6,8 +6,6 @@ using System.Windows.Media.Imaging;
 
 namespace EsGaceWPF
 {
-    #region HeaderToImageConverter
-
     [ValueConversion(typeof(Item), typeof(bool))]
     public class HeaderToImageConverter : IValueConverter
     {

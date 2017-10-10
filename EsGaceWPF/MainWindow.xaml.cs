@@ -5,13 +5,18 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
+using EsGace.Classes;
+using EsGaceEngin;
+using System.Collections;
+using System.ComponentModel;
+using System.Windows.Data;
 
 namespace EsGaceWPF
 {
     /// <summary>
     /// Logique d'interaction pour Window1.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         #region Variables =========================================================================
 
@@ -179,9 +184,15 @@ namespace EsGaceWPF
             m_HeureDepartAnalyse = new DateTime();
             m_HeureDepartAnalyse = DateTime.Now;
             footer.Visibility = System.Windows.Visibility.Visible;
+            analyzeCancel.Visibility = footer.Visibility;
             progression.IsIndeterminate = true;
             m_timerElapsed.Start();
             m_moteur.Analyse();
+        }
+
+        private void LaunchEsGaceOnGitHub(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/mongeon/EsGace");
         }
 
         private void TimerElapsed_Tick(object sender, EventArgs e)
@@ -189,70 +200,6 @@ namespace EsGaceWPF
             TimeSpan ts = DateTime.Now - m_HeureDepartAnalyse;
             elapsedTime.Content = ts.ToString().Substring(0, 8);//ts.Hours.ToString() + ":" + ts.Minutes.ToString() + ":" + ts.Seconds.ToString();
         }
-
-        //}
-        //private void tvEsGace_AfterSelect(object sender, TreeViewEventArgs e)
-        //{
-        //    if (e.Node != null)
-        //    {
-        //        if (e.Node.Tag is Item)
-        //        {
-        //            Item item = (Item)e.Node.Tag;
-        //            tcOutilsAdditionnels.Item = item;
-        //            //diPrincipale.ItemCourant = item;
-        //            tmiPrincipale.ItemCourant = item;
-
-        // } else { txtDetails.Text = ""; } }
-
-        //}
-        /*  public void q_sort(TreeViewItem left, TreeViewItem right, ItemCollection itemCollection)
-          {
-              TreeViewItem pivot, l_hold, r_hold;
-
-              l_hold = left;
-              r_hold = right;
-              pivot = (TreeViewItem)(itemCollection[left]);
-
-              while (left < right)
-              {
-                  while ((itemCollection[right] >= pivot) && (left < right))
-                  {
-                      right--;
-                  }
-
-                  if (left != right)
-                  {
-                      itemCollection[left] = itemCollection[right];
-                      left++;
-                  }
-
-                  while ((itemCollection[left] <= pivot) && (left < right))
-                  {
-                      left++;
-                  }
-
-                  if (left != right)
-                  {
-                      itemCollection[right] = itemCollection[left];
-                      right--;
-                  }
-              }
-
-              itemCollection[left] = pivot;
-              pivot = left;
-              left = l_hold;
-              right = r_hold;
-
-              if (left < pivot)
-              {
-                  q_sort(left, pivot - 1);
-              }
-
-              if (right > pivot)
-              {
-                  q_sort(pivot + 1, right);
-              }
-          }*/
 
         #region Moteur / Engin ====================================================================
 
@@ -281,6 +228,7 @@ namespace EsGaceWPF
             progression.IsIndeterminate = false;
             m_timerElapsed.Stop();
             footer.Visibility = System.Windows.Visibility.Collapsed;
+            analyzeCancel.Visibility = footer.Visibility;
         }
 
         ///****************************************************************************************

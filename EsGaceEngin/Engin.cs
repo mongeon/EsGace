@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace EsGaceEngin
 {
@@ -157,10 +158,12 @@ namespace EsGaceEngin
             {
                 return item.Taille;
             }
-            foreach (Item s_item in item.GetEnfants)
-            {
-                taille += AnalyseRecursive(s_item);
-            }
+
+            Parallel.ForEach(item.GetEnfants, (s_item) =>
+             {
+                 taille += AnalyseRecursive(s_item);
+             });
+
             if (item is Repertoire)
             {
                 item.Taille = taille;
